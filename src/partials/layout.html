@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr">
+<head>
+{{> head}}
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+  <div class="progress" aria-hidden="true"></div>
+
+{{> header}}
+
+  <main id="main">
+{{content}}
+  </main>
+
+{{> footer}}
+
+{{test_banner}}
+  <script src="{{base}}assets/js/main.js?v={{v}}" defer></script>
+{{scripts}}</body>
+</html>

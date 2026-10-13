@@ -1,0 +1,390 @@
+<!--meta
+title: JMI Vérandas · Vérandas, pergolas et châssis à Corbion-sur-Semois
+description: Vérandas, pergolas bioclimatiques, stores, volets, portes, fenêtres et châssis dans les provinces de Luxembourg et de Namur. Plus de 30 ans d'expérience. Devis gratuit.
+nav: home
+scripts: pergola, lightbox
+preload: fraunces-italic
+-->
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow reveal">Corbion-sur-Semois · près de Bouillon</p>
+
+        <h1 class="hero-title reveal">
+          Faites un pas de plus<span class="hero-title-soft"> vers votre jardin.</span>
+        </h1>
+
+        <div class="hero-grid">
+          <p class="lead reveal">
+            Vérandas, pergolas classiques ou bioclimatiques, stores, volets, portes, fenêtres, châssis et moustiquaires.
+            Vente, installation, entretien et réparation dans les provinces de Luxembourg et de Namur.
+          </p>
+          <div class="hero-cta reveal">
+            <a class="btn btn--primary btn--lg" href="{{base}}contact/">Demander un devis</a>
+            <a class="btn btn--ghost btn--lg" href="{{base}}realisations/">Voir nos réalisations</a>
+          </div>
+        </div>
+
+        <figure class="hero-media reveal">
+          {{img name="pergola-bio-hero" alt="Pergola bioclimatique anthracite avec store vertical et éclairage intégré, sur une terrasse face à une maison en pierre" sizes="(min-width: 1280px) 1240px, 100vw" loading="eager" fetchpriority="high"}}
+          <div class="chip chip--blue chip--br">
+            <strong class="count" data-count="{{site.experienceYears}}" data-suffix="+">{{site.experienceYears}}+</strong>
+            <span>années d'expérience</span>
+          </div>
+          <figcaption class="chip chip--glass chip--tl"><span class="chip-dot"></span> Pergola bioclimatique</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ BANDEAU ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Vérandas</span><i></i><span>Pergolas classiques</span><i></i><span>Pergolas bioclimatiques</span><i></i><span>Stores</span><i></i><span>Protections solaires</span><i></i><span>Volets roulants</span><i></i><span>Fenêtres</span><i></i><span>Portes</span><i></i><span>Châssis</span><i></i><span>Moustiquaires</span><i></i><span>Carports</span><i></i>
+        <span>Vérandas</span><i></i><span>Pergolas classiques</span><i></i><span>Pergolas bioclimatiques</span><i></i><span>Stores</span><i></i><span>Protections solaires</span><i></i><span>Volets roulants</span><i></i><span>Fenêtres</span><i></i><span>Portes</span><i></i><span>Châssis</span><i></i><span>Moustiquaires</span><i></i><span>Carports</span><i></i>
+      </div>
+    </div>
+
+    <!-- ============ PRÉSENTATION ============ -->
+    <section class="section intro" id="presentation">
+      <div class="wrap intro-grid">
+        <div>
+          <p class="eyebrow reveal">Qui sommes-nous</p>
+          <h2 class="h2 reveal">Améliorez le confort de votre habitation.</h2>
+        </div>
+        <div class="reveal">
+          <p class="body-lg">
+            Basés à Corbion-sur-Semois, près de Bouillon, nous intervenons dans les provinces de Luxembourg et de Namur
+            pour la vente, l'installation, l'entretien et la réparation de vérandas, extensions, pergolas, carports,
+            stores, protections solaires, volets roulants, fenêtres, portes et moustiquaires.
+          </p>
+          <p class="body">Nous proposons des produits de qualité et sur mesure, parmi les plus grandes marques.</p>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <blockquote class="pull reveal">
+          <span class="pull-mark" aria-hidden="true">“</span>
+          Allez dehors en restant dedans…
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ============ SIMULATEUR DE PERGOLA ============ -->
+    <section class="section sim" id="lumiere" aria-labelledby="sim-title">
+      <div class="wrap sim-grid">
+        <div class="sim-copy">
+          <p class="eyebrow reveal">Pergola bioclimatique</p>
+          <h2 class="h2 reveal" id="sim-title">Réglez la lumière, d'un geste.</h2>
+          <p class="body-lg reveal">
+            Les lames d'une pergola bioclimatique s'orientent. Fermées, elles abritent du soleil et de la pluie&nbsp;;
+            inclinées, elles filtrent la lumière et laissent circuler l'air&nbsp;; ouvertes, elles invitent le plein soleil.
+          </p>
+
+          <div class="sim-controls reveal">
+            <div class="seg" role="group" aria-label="Météo">
+              <button type="button" class="seg-btn is-on" data-weather="sun" aria-pressed="true">Soleil</button>
+              <button type="button" class="seg-btn" data-weather="rain" aria-pressed="false">Pluie</button>
+            </div>
+
+            <label class="range-label" for="louvre">Orientation des lames</label>
+            <input class="range" id="louvre" type="range" min="0" max="100" value="55" aria-describedby="sim-state">
+            <div class="range-ticks" aria-hidden="true"><span>Fermées</span><span>Inclinées</span><span>Ouvertes</span></div>
+
+            <div class="presets" role="group" aria-label="Positions rapides">
+              <button type="button" class="chip-btn" data-preset="0">Fermées</button>
+              <button type="button" class="chip-btn" data-preset="55">Inclinées</button>
+              <button type="button" class="chip-btn" data-preset="100">Ouvertes</button>
+            </div>
+          </div>
+
+          <p class="sim-state" id="sim-state" aria-live="polite">Lames inclinées : la lumière est filtrée, l'air circule.</p>
+
+          <div class="meters" aria-hidden="true">
+            <div class="meter"><span>Lumière</span><i data-meter="light"></i></div>
+            <div class="meter"><span>Air</span><i data-meter="air"></i></div>
+            <div class="meter"><span>Abri</span><i data-meter="shelter"></i></div>
+          </div>
+        </div>
+
+        <figure class="sim-stage reveal">
+          <svg class="sim-svg" viewBox="0 0 760 440" role="img" aria-label="Schéma d'une pergola bioclimatique dont les lames pivotent selon le curseur" data-sim>
+            <defs>
+              <linearGradient id="sim-sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" class="s-sky-1"/><stop offset="1" class="s-sky-2"/>
+              </linearGradient>
+              <linearGradient id="sim-beam" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffe9a8" stop-opacity=".85"/><stop offset="1" stop-color="#ffe9a8" stop-opacity=".05"/>
+              </linearGradient>
+              <clipPath id="sim-inside"><rect x="112" y="126" width="536" height="234"/></clipPath>
+              <clipPath id="sim-outside"><path clip-rule="evenodd" d="M0 0H760V440H0Z M112 124H648V360H112Z"/></clipPath>
+              <clipPath id="sim-above"><rect x="0" y="0" width="760" height="122"/></clipPath>
+            </defs>
+
+            <rect width="760" height="440" class="s-sky"/>
+            <g class="sim-sun">
+              <circle cx="96" cy="58" r="44" class="s-sun-glow"/>
+              <circle cx="96" cy="58" r="26" class="s-sun"/>
+            </g>
+            <g class="sim-clouds"><ellipse cx="560" cy="62" rx="70" ry="18"/><ellipse cx="610" cy="48" rx="46" ry="16"/><ellipse cx="300" cy="40" rx="60" ry="14"/></g>
+
+            <!-- mur de la maison -->
+            <rect x="0" y="150" width="760" height="210" class="s-wall"/>
+            <rect x="330" y="190" width="120" height="110" rx="3" class="s-window"/>
+            <path d="M390 190v110M330 245h120" class="s-window-bar"/>
+
+            <!-- sol -->
+            <rect x="0" y="360" width="760" height="80" class="s-floor"/>
+            <path d="M0 392H760M0 420H760M190 360l-34 80M380 360v80M570 360l34 80" class="s-floor-lines"/>
+
+            <!-- intérieur de la pergola : ombre et lumière -->
+            <g clip-path="url(#sim-inside)">
+              <rect x="112" y="126" width="536" height="234" class="s-shade"/>
+              <g class="sim-beams"></g>
+              <ellipse cx="380" cy="372" rx="250" ry="22" class="s-patch"/>
+            </g>
+
+            <!-- mobilier -->
+            <g class="s-furniture">
+              <rect x="300" y="318" width="160" height="10" rx="4"/>
+              <path d="M318 328l-8 40M442 328l8 40"/>
+              <rect x="258" y="332" width="30" height="8" rx="3"/><path d="M262 340v26M284 340v26M258 306v26" />
+              <rect x="472" y="332" width="30" height="8" rx="3"/><path d="M476 340v26M498 340v26M502 306v26" />
+            </g>
+
+            <!-- structure -->
+            <rect x="104" y="112" width="8" height="250" class="s-post"/>
+            <rect x="648" y="112" width="8" height="250" class="s-post"/>
+            <rect x="104" y="106" width="552" height="14" rx="3" class="s-beam"/>
+
+            <!-- lames -->
+            <g class="sim-louvres"></g>
+
+            <!-- pluie -->
+            <g class="sim-rain" clip-path="url(#sim-outside)"></g>
+            <g class="sim-rain sim-rain--in" clip-path="url(#sim-inside)"></g>
+            <g class="sim-rain sim-rain--roof" clip-path="url(#sim-above)"></g>
+          </svg>
+          <figcaption class="sim-note">Illustration schématique. Chaque projet est étudié sur mesure.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ PRODUITS ============ -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Véranda &amp; châssis</p>
+          <h2 class="h2">Tout pour vivre dehors, en gardant le confort dedans.</h2>
+        </header>
+
+        <div class="bento">
+          <a class="card card--photo card--xl reveal" href="{{base}}verandas-chassis/#verandas">
+            {{img name="veranda-brique" alt="" sizes="(min-width: 960px) 600px, 100vw" class="card-bg"}}
+            <span class="card-num">01</span>
+            <div class="card-body">
+              <h3>Vérandas</h3>
+              <p>Extensions vitrées sur mesure, pour profiter de votre jardin toute l'année.</p>
+            </div>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="card card--photo card--xl reveal" href="{{base}}verandas-chassis/#pergolas">
+            {{img name="pergola-bio-interieur" alt="" sizes="(min-width: 960px) 600px, 100vw" class="card-bg"}}
+            <span class="card-num">02</span>
+            <div class="card-body">
+              <h3>Pergolas classiques &amp; bioclimatiques</h3>
+              <p>Lames orientables, stores, éclairage intégré : un salon d'extérieur.</p>
+            </div>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="card reveal" href="{{base}}verandas-chassis/#carports"><span class="card-num">03</span><h3>Carports</h3><p>Un abri pour votre voiture, sur mesure.</p></a>
+          <a class="card reveal" href="{{base}}verandas-chassis/#stores"><span class="card-num">04</span><h3>Stores &amp; protections solaires</h3><p>Intérieurs et extérieurs, pour le confort et l'intimité.</p></a>
+          <a class="card reveal" href="{{base}}verandas-chassis/#volets"><span class="card-num">05</span><h3>Volets roulants &amp; portes de garage</h3><p>Installation, entretien et réparation.</p></a>
+          <a class="card reveal" href="{{base}}verandas-chassis/#fenetres-portes"><span class="card-num">06</span><h3>Fenêtres, portes &amp; châssis</h3><p>En aluminium, en PVC ou en bois.</p></a>
+          <a class="card reveal" href="{{base}}verandas-chassis/#moustiquaires"><span class="card-num">07</span><h3>Moustiquaires</h3><p>Aérez sans laisser entrer les insectes.</p></a>
+          <a class="card reveal" href="{{base}}verandas-chassis/#entretien"><span class="card-num">08</span><h3>Entretien &amp; réparation</h3><p>Nous restons à votre service après la pose.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RÉALISATIONS ============ -->
+    <section class="section section--tint" id="realisations">
+      <div class="wrap">
+        <header class="section-head section-head--row reveal">
+          <div>
+            <p class="eyebrow">Réalisations</p>
+            <h2 class="h2">Des projets sur mesure, chez vous.</h2>
+          </div>
+          <a class="link-arrow" href="{{base}}realisations/">Toutes les réalisations <span aria-hidden="true">→</span></a>
+        </header>
+      </div>
+
+      <div class="gallery" tabindex="0" role="region" aria-label="Aperçu de réalisations, à faire défiler">
+        <figure class="shot">
+          <a href="{{imgurl name="veranda-baies-coulissantes"}}" data-lightbox="accueil" data-caption="Véranda à baies vitrées coulissantes">
+            {{img name="veranda-baies-coulissantes" alt="Véranda contemporaine à baies vitrées coulissantes, structure anthracite" sizes="(min-width: 700px) 560px, 84vw"}}
+          </a>
+          <figcaption><span>01</span> Véranda à baies coulissantes</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="{{imgurl name="pergola-bio-terrasse"}}" data-lightbox="accueil" data-caption="Pergola à lames et store vertical">
+            {{img name="pergola-bio-terrasse" alt="Pergola à lames de bois et store vertical sur une terrasse dallée" sizes="(min-width: 700px) 560px, 84vw"}}
+          </a>
+          <figcaption><span>02</span> Pergola à lames et store vertical</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="{{imgurl name="real-arlon"}}" data-lightbox="accueil" data-caption="Véranda à toiture plate · Arlon">
+            {{img name="real-arlon" alt="Véranda à toiture plate à Arlon" sizes="(min-width: 700px) 560px, 84vw"}}
+          </a>
+          <figcaption><span>03</span> Véranda à toiture plate · Arlon</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="{{imgurl name="veranda-brique"}}" data-lightbox="accueil" data-caption="Véranda sur une maison en briques">
+            {{img name="veranda-brique" alt="Véranda anthracite sur une maison en briques" sizes="(min-width: 700px) 560px, 84vw"}}
+          </a>
+          <figcaption><span>04</span> Véranda sur maison en briques</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="{{imgurl name="facade-chassis-garage"}}" data-lightbox="accueil" data-caption="Châssis et porte de garage">
+            {{img name="facade-chassis-garage" alt="Façade avec châssis anthracite et porte de garage blanche" sizes="(min-width: 700px) 560px, 84vw"}}
+          </a>
+          <figcaption><span>05</span> Châssis et porte de garage</figcaption>
+        </figure>
+        <a class="shot shot--more" href="{{base}}realisations/">
+          <span>Voir toutes les réalisations</span>
+          <span class="shot-more-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ POURQUOI ============ -->
+    <section class="section" id="pourquoi">
+      <div class="wrap why-grid">
+        <aside class="why-stat reveal">
+          <p class="why-big"><span class="count" data-count="{{site.experienceYears}}" data-suffix="+">{{site.experienceYears}}+</span></p>
+          <p class="why-big-label">années d'expérience</p>
+          <p class="body-sm">À votre service dans la région, avec un accompagnement pas à pas du projet.</p>
+        </aside>
+
+        <div>
+          <h2 class="h2 reveal">Pourquoi choisir JMI Vérandas&nbsp;?</h2>
+          <ol class="reasons">
+            <li class="reveal">
+              <h3>Des conseils professionnels</h3>
+              <p>Dès les premiers échanges, nous adaptons nos conseils à votre logement.</p>
+            </li>
+            <li class="reveal">
+              <h3>Du sur mesure, parmi les grandes marques</h3>
+              <p>Des produits de qualité, personnalisés, avec les meilleurs matériaux du marché.</p>
+            </li>
+            <li class="reveal">
+              <h3>Vous visualisez avant de décider</h3>
+              <p>Croquis et simulation 3D de votre projet, avant toute pose.</p>
+            </li>
+            <li class="reveal">
+              <h3>Un devis gratuit et sans engagement</h3>
+              <p>Appelez-nous, nous étudions votre projet avec vous.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="value reveal">
+          <div>
+            <p class="eyebrow eyebrow--onblue">Votre budget</p>
+            <h2 class="h2 h2--light">Un excellent rapport qualité-prix.</h2>
+          </div>
+          <div>
+            <p class="body-lg body-lg--light">
+              Nous travaillons avec les grandes marques et les meilleurs matériaux, à des prix avantageux.
+            </p>
+            <a class="btn btn--light" href="{{base}}contact/">Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ÉTAPES + 3D ============ -->
+    <section class="section section--dark" id="etapes">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow eyebrow--light">Votre projet</p>
+          <h2 class="h2">Voyez-le avant de le construire.</h2>
+        </header>
+
+        <div class="process-grid">
+          <ol class="steps">
+            <li class="step reveal">
+              <span class="step-num">01</span>
+              <div>
+                <h3>Premier échange</h3>
+                <p>Conseils professionnels, personnalisés et adaptés à votre logement.</p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">02</span>
+              <div>
+                <h3>Croquis, simulation 3D et devis</h3>
+                <p>Vous visualisez votre projet avant la pose. Le devis est gratuit et sans engagement.</p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">03</span>
+              <div>
+                <h3>Permis et installation</h3>
+                <p>Nous vous aidons dans vos démarches de permis, puis nous posons sur mesure.</p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">04</span>
+              <div>
+                <h3>Entretien et réparation</h3>
+                <p>Nous restons à votre service après l'installation.</p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="sim3d">
+            <figure class="reveal">
+              <a href="{{imgurl name="sim3d-croquis"}}" data-lightbox="sim3d" data-caption="Croquis 3D d'une véranda">
+                {{img name="sim3d-croquis" alt="Croquis 3D d'une véranda à toiture vitrée" sizes="(min-width: 960px) 460px, 90vw"}}
+              </a>
+              <figcaption>Croquis 3D</figcaption>
+            </figure>
+            <figure class="reveal">
+              <a href="{{imgurl name="sim3d-photo"}}" data-lightbox="sim3d" data-caption="Implantation 3D sur photo">
+                {{img name="sim3d-photo" alt="Simulation 3D d'une véranda implantée sur la photo d'une maison" sizes="(min-width: 960px) 460px, 90vw"}}
+              </a>
+              <figcaption>Implantation 3D sur photo</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ZONE ============ -->
+    <section class="section" id="zone">
+      <div class="wrap zone-grid">
+        <div>
+          <p class="eyebrow reveal">Où intervenons-nous&nbsp;?</p>
+          <h2 class="h2 reveal">Au départ de Corbion, partout en Luxembourg et à Namur.</h2>
+          <p class="body-lg reveal">
+            JMI Vérandas se déplace dans les provinces de Luxembourg et de Namur pour la vente, l'installation,
+            l'entretien et la réparation de vos vérandas, pergolas, châssis, volets et stores.
+          </p>
+          <ul class="zone-list reveal">
+            <li><span class="dot dot--pin"></span> Basés à Corbion-sur-Semois, près de Bouillon</li>
+            <li><span class="dot"></span> Réalisations à Arlon, Marche, Bertrix, Beauraing…</li>
+          </ul>
+          <a class="link-arrow reveal" href="{{base}}contact/">Parler de votre projet <span aria-hidden="true">→</span></a>
+        </div>
+        <figure class="zone-map reveal">
+{{> zone-map}}
+          <figcaption class="zone-credit">Contours des provinces : Statbel (ODbL).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+{{> cta}}

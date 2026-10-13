@@ -1,0 +1,164 @@
+<!--meta
+title: Contact et devis gratuit · JMI Vérandas à Corbion (Bouillon)
+description: Demandez un devis gratuit et sans engagement à JMI Vérandas : vérandas, pergolas, stores, volets, portes et fenêtres dans les provinces de Luxembourg et de Namur. 0471 55 39 94.
+nav: contact
+scripts: devis
+-->
+
+    <section class="page-hero page-hero--compact">
+      <div class="wrap">
+        <p class="eyebrow reveal">Contact</p>
+        <h1 class="page-title reveal">Parlons de votre projet.</h1>
+        <div class="page-hero-grid">
+          <p class="lead reveal">
+            Devis gratuit et sans engagement. Pour toute question sur nos services, contactez M. {{site.owner}}
+            par téléphone ou en quelques clics ci-dessous.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--flush">
+      <div class="wrap contact-layout">
+
+        <!-- ===== Assistant de devis ===== -->
+        <div class="wizard-card reveal">
+          <h2 class="wizard-title">Demande de devis</h2>
+
+          <form class="wizard" id="devis" novalidate data-endpoint="{{site.formEndpoint}}" data-email="{{site.email}}" data-phone="{{site.phone}}">
+            <ol class="wizard-steps" aria-label="Progression">
+              <li class="is-current" data-step-ind="1"><span>1</span> Projet</li>
+              <li data-step-ind="2"><span>2</span> Détails</li>
+              <li data-step-ind="3"><span>3</span> Coordonnées</li>
+            </ol>
+
+            <fieldset class="wstep" data-step="1">
+              <legend class="wlegend">Quel est votre projet&nbsp;? <span class="muted">Plusieurs choix possibles.</span></legend>
+              <div class="pills">
+                <label class="pill"><input type="checkbox" name="projet" value="veranda"><span>Véranda</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="extension"><span>Extension</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="pergola-classique"><span>Pergola classique</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="pergola-bioclimatique"><span>Pergola bioclimatique</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="carport"><span>Carport</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="store-exterieur"><span>Store extérieur</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="store-interieur"><span>Store intérieur</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="protection-solaire"><span>Protection solaire</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="volet-roulant"><span>Volet roulant</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="fenetre"><span>Fenêtre</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="porte"><span>Porte</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="porte-garage"><span>Porte de garage</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="moustiquaire"><span>Moustiquaires</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="entretien"><span>Entretien / réparation</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="documentation"><span>Documentation</span></label>
+              </div>
+              <p class="field-error" data-error="projet" role="alert" hidden>Choisissez au moins un type de projet.</p>
+            </fieldset>
+
+            <fieldset class="wstep" data-step="2" hidden>
+              <legend class="wlegend">Dites-nous en plus</legend>
+              <div class="field">
+                <label for="f-commune">Commune du projet</label>
+                <input id="f-commune" name="commune" type="text" autocomplete="address-level2" placeholder="Par exemple : Bouillon">
+              </div>
+              <div class="field">
+                <label for="f-message">Votre demande</label>
+                <textarea id="f-message" name="message" rows="6" placeholder="Dimensions approximatives, matériaux souhaités, questions… (facultatif)"></textarea>
+              </div>
+            </fieldset>
+
+            <fieldset class="wstep" data-step="3" hidden>
+              <legend class="wlegend">Vos coordonnées</legend>
+              <div class="field">
+                <label for="f-nom">Nom <span class="req" aria-hidden="true">*</span></label>
+                <input id="f-nom" name="nom" type="text" autocomplete="name" required aria-describedby="err-nom">
+                <p class="field-error" id="err-nom" data-error="nom" role="alert" hidden>Indiquez votre nom.</p>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="f-tel">Téléphone</label>
+                  <input id="f-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="err-contact">
+                </div>
+                <div class="field">
+                  <label for="f-email">E-mail</label>
+                  <input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="err-contact">
+                </div>
+              </div>
+              <p class="field-error" id="err-contact" data-error="contact" role="alert" hidden>Indiquez au moins un téléphone ou une adresse e-mail valide.</p>
+              <p class="hint">Un téléphone ou un e-mail suffit, pour que nous puissions vous répondre.</p>
+              <p class="legal-note">Vos informations servent uniquement à répondre à votre demande. <a href="{{base}}confidentialite/">En savoir plus</a>.</p>
+            </fieldset>
+
+            <div class="wizard-nav">
+              <button type="button" class="btn btn--ghost" data-prev hidden>Retour</button>
+              <button type="button" class="btn btn--primary" data-next>Continuer</button>
+              <button type="submit" class="btn btn--primary" data-submit hidden>Envoyer ma demande</button>
+            </div>
+
+            <div class="wizard-result" data-result hidden tabindex="-1">
+              <h3 data-result-title>Merci !</h3>
+              <p data-result-text></p>
+              <div class="result-actions" data-result-actions></div>
+            </div>
+          </form>
+
+          <noscript><p class="note-small">Le formulaire nécessite JavaScript. Appelez-nous au <a href="tel:{{site.phoneIntl}}">{{site.phone}}</a> ou écrivez à <a href="mailto:{{site.email}}">{{site.email}}</a>.</p></noscript>
+        </div>
+
+        <!-- ===== Coordonnées ===== -->
+        <aside class="contact-aside">
+          <a class="contact-phone reveal" href="tel:{{site.phoneIntl}}">
+            <span class="label">Téléphone</span>
+            <span class="big">{{site.phone}}</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+
+          <div class="info-card reveal">
+            <div class="info-row">
+              <span class="label">Interlocuteur</span>
+              <p>M. {{site.owner}}<br><span class="muted">Questions et devis</span></p>
+            </div>
+            <div class="info-row">
+              <span class="label">E-mail</span>
+              <p><a href="mailto:{{site.email}}">{{site.email}}</a></p>
+            </div>
+            <div class="info-row">
+              <span class="label">Adresse</span>
+              <p>{{site.address.street}}<br>{{site.address.zip}} {{site.address.city}}<br>
+                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rue+du+Chairi+29%2C+6838+Corbion%2C+Belgique" target="_blank" rel="noopener">Itinéraire (Google Maps)<span class="sr-only"> – nouvelle fenêtre</span></a></p>
+            </div>
+            <div class="info-row">
+              <span class="label">Facebook</span>
+              <p><a href="{{site.facebook}}" target="_blank" rel="noopener">JMI Vérandas<span class="sr-only"> – nouvelle fenêtre</span></a></p>
+            </div>
+          </div>
+
+          <div class="info-card reveal" data-hours="{{hours_json}}">
+            <span class="label">Horaires</span>
+            <p class="status" data-status><span class="status-dot" aria-hidden="true"></span><span data-status-text>{{site.hoursNote}}</span></p>
+            <table class="hours"><tbody>
+{{hours_table}}
+            </tbody></table>
+            <p class="muted small">{{site.hoursNote}}.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== Zone ===== -->
+    <section class="section" id="zone">
+      <div class="wrap zone-grid">
+        <div>
+          <p class="eyebrow reveal">Où intervenons-nous&nbsp;?</p>
+          <h2 class="h2 reveal">Provinces de Luxembourg et de Namur.</h2>
+          <p class="body-lg reveal">
+            Au départ de Corbion (Bouillon), JMI Vérandas se déplace pour la vente, l'installation, l'entretien et la
+            réparation de vos vérandas, extensions, carports, stores, protections solaires, volets roulants, fenêtres,
+            portes et pergolas.
+          </p>
+        </div>
+        <figure class="zone-map reveal">
+{{> zone-map}}
+          <figcaption class="zone-credit">Contours des provinces : Statbel (ODbL).</figcaption>
+        </figure>
+      </div>
+    </section>
