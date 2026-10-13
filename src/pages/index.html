@@ -26,6 +26,7 @@ scripts: pergola, lightbox, places
         </div>
 
         <figure class="hero-media reveal">
+          <span class="glass glass--l" aria-hidden="true"></span><span class="glass glass--r" aria-hidden="true"></span>
           {{img name="pergola-bio-hero" alt="Pergola bioclimatique anthracite avec store vertical et éclairage intégré, sur une terrasse face à une maison en pierre" sizes="(min-width: 1280px) 1240px, 100vw" loading="eager" fetchpriority="high"}}
           <figcaption class="chip chip--glass chip--tl"><span class="chip-dot"></span> Pergola bioclimatique</figcaption>
         </figure>
@@ -71,96 +72,117 @@ scripts: pergola, lightbox, places
       </div>
     </section>
 
-    <!-- ============ SIMULATEUR DE PERGOLA ============ -->
-    <section class="section sim" id="lumiere" aria-labelledby="sim-title">
-      <div class="wrap sim-grid">
-        <div class="sim-copy">
-          <p class="eyebrow reveal">Pergola bioclimatique</p>
-          <h2 class="h2 reveal" id="sim-title">Réglez la lumière, d'un geste.</h2>
-          <p class="body-lg reveal">
-            Les lames d'une pergola bioclimatique s'orientent. Fermées, elles abritent du soleil et de la pluie&nbsp;;
-            inclinées, elles filtrent la lumière et laissent circuler l'air&nbsp;; ouvertes, elles invitent le plein soleil.
-          </p>
+    <!-- ============ UNE JOURNÉE SOUS LA PERGOLA (piloté par le défilement) ============ -->
+    <section class="sim" id="lumiere" aria-labelledby="sim-title">
+      <div class="sim-pin" data-story>
+        <div class="sim-sticky">
+          <div class="wrap sim-grid">
+            <div class="sim-copy">
+              <p class="eyebrow reveal">Pergola bioclimatique</p>
+              <h2 class="h2" id="sim-title">Une journée <span class="it">sous la pergola.</span></h2>
+              <p class="body-lg sim-lead">
+                Faites défiler : le matin, midi, la pluie, le soir. Les lames d'une pergola bioclimatique s'orientent
+                pour filtrer la lumière, abriter de la pluie ou inviter le plein soleil.
+              </p>
 
-          <div class="sim-controls reveal">
-            <div class="seg" role="group" aria-label="Météo">
-              <button type="button" class="seg-btn is-on" data-weather="sun" aria-pressed="true">Soleil</button>
-              <button type="button" class="seg-btn" data-weather="rain" aria-pressed="false">Pluie</button>
+              <p class="sim-state" id="sim-state" aria-live="polite">Le matin, les lames sont inclinées : la lumière est douce, l'air circule.</p>
+
+              <nav class="story-rail" aria-label="Moments de la journée">
+                <i class="story-fill" aria-hidden="true"></i>
+                <button type="button" data-step="0">Matin</button>
+                <button type="button" data-step="1">Midi</button>
+                <button type="button" data-step="2">Pluie</button>
+                <button type="button" data-step="3">Soir</button>
+              </nav>
+
+              <details class="sim-hand">
+                <summary>Prendre les commandes</summary>
+                <div class="sim-controls">
+                  <div class="seg" role="group" aria-label="Météo">
+                    <button type="button" class="seg-btn is-on" data-weather="sun" aria-pressed="true">Soleil</button>
+                    <button type="button" class="seg-btn" data-weather="rain" aria-pressed="false">Pluie</button>
+                  </div>
+
+                  <label class="range-label" for="louvre">Orientation des lames</label>
+                  <input class="range" id="louvre" type="range" min="0" max="100" value="55" aria-describedby="sim-state">
+                  <div class="range-ticks" aria-hidden="true"><span>Fermées</span><span>Inclinées</span><span>Ouvertes</span></div>
+
+                  <div class="presets" role="group" aria-label="Positions rapides">
+                    <button type="button" class="chip-btn" data-preset="0">Fermées</button>
+                    <button type="button" class="chip-btn" data-preset="55">Inclinées</button>
+                    <button type="button" class="chip-btn" data-preset="100">Ouvertes</button>
+                  </div>
+                </div>
+
+                <div class="meters" aria-hidden="true">
+                  <div class="meter"><span>Lumière</span><i data-meter="light"></i></div>
+                  <div class="meter"><span>Air</span><i data-meter="air"></i></div>
+                  <div class="meter"><span>Abri</span><i data-meter="shelter"></i></div>
+                </div>
+              </details>
             </div>
 
-            <label class="range-label" for="louvre">Orientation des lames</label>
-            <input class="range" id="louvre" type="range" min="0" max="100" value="55" aria-describedby="sim-state">
-            <div class="range-ticks" aria-hidden="true"><span>Fermées</span><span>Inclinées</span><span>Ouvertes</span></div>
+            <figure class="sim-stage">
+              <svg class="sim-svg" viewBox="0 0 760 440" role="img" aria-label="Schéma d'une pergola bioclimatique : les lames pivotent, le soleil se déplace, l'éclairage s'allume le soir" data-sim>
+                <defs>
+                  <linearGradient id="sim-sky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" class="s-sky-1"/><stop offset="1" class="s-sky-2"/>
+                  </linearGradient>
+                  <linearGradient id="sim-beam" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#ffe9a8" stop-opacity=".85"/><stop offset="1" stop-color="#ffe9a8" stop-opacity=".05"/>
+                  </linearGradient>
+                  <clipPath id="sim-inside"><rect x="112" y="126" width="536" height="234"/></clipPath>
+                  <clipPath id="sim-outside"><path clip-rule="evenodd" d="M0 0H760V440H0Z M112 124H648V360H112Z"/></clipPath>
+                  <clipPath id="sim-above"><rect x="0" y="0" width="760" height="122"/></clipPath>
+                </defs>
 
-            <div class="presets" role="group" aria-label="Positions rapides">
-              <button type="button" class="chip-btn" data-preset="0">Fermées</button>
-              <button type="button" class="chip-btn" data-preset="55">Inclinées</button>
-              <button type="button" class="chip-btn" data-preset="100">Ouvertes</button>
-            </div>
-          </div>
+                <rect width="760" height="440" class="s-sky"/>
+                <g class="sim-sun">
+                  <circle cx="96" cy="58" r="44" class="s-sun-glow"/>
+                  <circle cx="96" cy="58" r="26" class="s-sun"/>
+                </g>
+                <g class="sim-clouds"><ellipse cx="560" cy="62" rx="70" ry="18"/><ellipse cx="610" cy="48" rx="46" ry="16"/><ellipse cx="300" cy="40" rx="60" ry="14"/></g>
 
-          <p class="sim-state" id="sim-state" aria-live="polite">Lames inclinées : la lumière est filtrée, l'air circule.</p>
+                <rect x="0" y="150" width="760" height="210" class="s-wall"/>
+                <rect x="330" y="190" width="120" height="110" rx="3" class="s-window"/>
+                <path d="M390 190v110M330 245h120" class="s-window-bar"/>
 
-          <div class="meters" aria-hidden="true">
-            <div class="meter"><span>Lumière</span><i data-meter="light"></i></div>
-            <div class="meter"><span>Air</span><i data-meter="air"></i></div>
-            <div class="meter"><span>Abri</span><i data-meter="shelter"></i></div>
+                <rect x="0" y="360" width="760" height="80" class="s-floor"/>
+                <path d="M0 392H760M0 420H760M190 360l-34 80M380 360v80M570 360l34 80" class="s-floor-lines"/>
+
+                <g clip-path="url(#sim-inside)">
+                  <rect x="112" y="126" width="536" height="234" class="s-shade"/>
+                  <g class="sim-beams"></g>
+                  <ellipse cx="380" cy="372" rx="250" ry="22" class="s-patch"/>
+                </g>
+
+                <g class="s-furniture">
+                  <rect x="300" y="318" width="160" height="10" rx="4"/>
+                  <path d="M318 328l-8 40M442 328l8 40"/>
+                  <rect x="258" y="332" width="30" height="8" rx="3"/><path d="M262 340v26M284 340v26M258 306v26" />
+                  <rect x="472" y="332" width="30" height="8" rx="3"/><path d="M476 340v26M498 340v26M502 306v26" />
+                </g>
+
+                <rect x="104" y="112" width="8" height="250" class="s-post"/>
+                <rect x="648" y="112" width="8" height="250" class="s-post"/>
+                <rect x="104" y="106" width="552" height="14" rx="3" class="s-beam"/>
+
+                <g class="sim-louvres"></g>
+
+                <!-- nuit : tout s'assombrit, la fenêtre et le liseré s'allument -->
+                <rect class="s-night" width="760" height="440"/>
+                <rect class="s-win-glow" x="330" y="190" width="120" height="110" rx="3"/>
+                <ellipse class="s-led-spill" cx="380" cy="374" rx="262" ry="26"/>
+                <line class="s-led" x1="118" y1="124" x2="642" y2="124"/>
+
+                <g class="sim-rain" clip-path="url(#sim-outside)"></g>
+                <g class="sim-rain sim-rain--in" clip-path="url(#sim-inside)"></g>
+                <g class="sim-rain sim-rain--roof" clip-path="url(#sim-above)"></g>
+              </svg>
+              <figcaption class="sim-note">Illustration schématique. Chaque projet est étudié sur mesure.</figcaption>
+            </figure>
           </div>
         </div>
-
-        <figure class="sim-stage reveal">
-          <svg class="sim-svg" viewBox="0 0 760 440" role="img" aria-label="Schéma d'une pergola bioclimatique dont les lames pivotent selon le curseur" data-sim>
-            <defs>
-              <linearGradient id="sim-sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" class="s-sky-1"/><stop offset="1" class="s-sky-2"/>
-              </linearGradient>
-              <linearGradient id="sim-beam" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#ffe9a8" stop-opacity=".85"/><stop offset="1" stop-color="#ffe9a8" stop-opacity=".05"/>
-              </linearGradient>
-              <clipPath id="sim-inside"><rect x="112" y="126" width="536" height="234"/></clipPath>
-              <clipPath id="sim-outside"><path clip-rule="evenodd" d="M0 0H760V440H0Z M112 124H648V360H112Z"/></clipPath>
-              <clipPath id="sim-above"><rect x="0" y="0" width="760" height="122"/></clipPath>
-            </defs>
-
-            <rect width="760" height="440" class="s-sky"/>
-            <g class="sim-sun">
-              <circle cx="96" cy="58" r="44" class="s-sun-glow"/>
-              <circle cx="96" cy="58" r="26" class="s-sun"/>
-            </g>
-            <g class="sim-clouds"><ellipse cx="560" cy="62" rx="70" ry="18"/><ellipse cx="610" cy="48" rx="46" ry="16"/><ellipse cx="300" cy="40" rx="60" ry="14"/></g>
-
-            <rect x="0" y="150" width="760" height="210" class="s-wall"/>
-            <rect x="330" y="190" width="120" height="110" rx="3" class="s-window"/>
-            <path d="M390 190v110M330 245h120" class="s-window-bar"/>
-
-            <rect x="0" y="360" width="760" height="80" class="s-floor"/>
-            <path d="M0 392H760M0 420H760M190 360l-34 80M380 360v80M570 360l34 80" class="s-floor-lines"/>
-
-            <g clip-path="url(#sim-inside)">
-              <rect x="112" y="126" width="536" height="234" class="s-shade"/>
-              <g class="sim-beams"></g>
-              <ellipse cx="380" cy="372" rx="250" ry="22" class="s-patch"/>
-            </g>
-
-            <g class="s-furniture">
-              <rect x="300" y="318" width="160" height="10" rx="4"/>
-              <path d="M318 328l-8 40M442 328l8 40"/>
-              <rect x="258" y="332" width="30" height="8" rx="3"/><path d="M262 340v26M284 340v26M258 306v26" />
-              <rect x="472" y="332" width="30" height="8" rx="3"/><path d="M476 340v26M498 340v26M502 306v26" />
-            </g>
-
-            <rect x="104" y="112" width="8" height="250" class="s-post"/>
-            <rect x="648" y="112" width="8" height="250" class="s-post"/>
-            <rect x="104" y="106" width="552" height="14" rx="3" class="s-beam"/>
-
-            <g class="sim-louvres"></g>
-
-            <g class="sim-rain" clip-path="url(#sim-outside)"></g>
-            <g class="sim-rain sim-rain--in" clip-path="url(#sim-inside)"></g>
-            <g class="sim-rain sim-rain--roof" clip-path="url(#sim-above)"></g>
-          </svg>
-          <figcaption class="sim-note">Illustration schématique. Chaque projet est étudié sur mesure.</figcaption>
-        </figure>
       </div>
     </section>
 
