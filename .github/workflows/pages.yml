@@ -5,8 +5,6 @@ name: Déploiement de test (GitHub Pages)
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: "17 5 * * *"        # chaque matin : relit Facebook (si un jeton est configuré) et republie
   workflow_dispatch:
 
 permissions:
@@ -27,11 +25,6 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pillow
-      - name: "Relire les dernières publications Facebook (sans jeton, ne fait rien)"
-        run: python tools/fetch_facebook.py
-        env:
-          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
-          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
       - name: Construire le site (mode test)
         run: python tools/build.py
         env:
