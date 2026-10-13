@@ -1,0 +1,28 @@
+{
+  "_note": "Données relevées à la main sur la page Facebook le 2026-10-13. Pour afficher des publications sur le site, passer 'show' à true. tools/fetch_facebook.py peut remplir ce fichier automatiquement si un jeton de page est fourni.",
+  "page": {
+    "name": "JMI Pierrot jean-michel",
+    "url": "https://www.facebook.com/JMI.pierrotjeanmichel",
+    "reviews_url": "https://www.facebook.com/JMI.pierrotjeanmichel/reviews",
+    "followers": 217,
+    "recommend_percent": 100,
+    "reviews": 5,
+    "checked": "2026-10-13"
+  },
+  "quote": {
+    "text": "Travail bien fait et soigné",
+    "source": "Avis publié sur la page Facebook"
+  },
+  "filter_keywords": ["véranda", "veranda", "pergola", "châssis", "chassis", "porte", "fenêtre", "fenetre", "volet", "store", "moustiquaire", "pose", "réalisation", "realisation", "installation", "bioclimatique"],
+  "posts": [
+    {
+      "id": "manual-2026-04-20-nocturne-vtt",
+      "date": "2026-04-20",
+      "text": "Nocturne VTT et marche, mercredi 13/05 de 18h à 22h au terrain de foot de Corbion (VTT Corbion-Semois).",
+      "image": "",
+      "url": "https://www.facebook.com/JMI.pierrotjeanmichel",
+      "show": false,
+      "note": "Affiche d'un événement local partagée par la page : ce n'est pas une réalisation. Masquée par défaut."
+    }
+  ]
+}

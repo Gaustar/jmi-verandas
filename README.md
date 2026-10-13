@@ -23,6 +23,7 @@ Prérequis : Python 3 et Pillow (déjà présents sur cette machine). Aucune dé
 | les photos de la page Réalisations (légende, catégories) | `src/data/gallery.json` |
 | ajouter une photo | la déposer dans `src/img-src/` (nom sans espace) ; le build crée les tailles WebP |
 | couleurs, polices, espacements | `src/css/styles.css` (jetons en haut du fichier) |
+| chiffres Facebook, avis, publications affichées | `src/data/facebook.json` (voir `docs/FACEBOOK.md`) |
 | envoi direct du formulaire de devis | `site.json` → `formEndpoint` (voir ci-dessous) |
 
 `public/` est généré : ne pas le modifier à la main.
@@ -41,6 +42,7 @@ Si un service tiers est utilisé, le texte de `src/pages/confidentialite.html` d
 - `make_zone_map.py` : redessine la carte de zone (données Statbel dans `tools/data/`).
 - `make_icons.py` : régénère favicon et icônes à partir du logo.
 - `make_og.py` : régénère l'image de partage (1200×630) avec Chrome.
+- `fetch_facebook.py` : relit les dernières publications Facebook (jeton de page requis, voir `docs/FACEBOOK.md`).
 
 ## Déploiement de test (GitHub Pages)
 

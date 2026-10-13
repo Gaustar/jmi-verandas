@@ -23,7 +23,7 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 OUT = ROOT / "public"
-TMP = ROOT / ".build"
+TMP = ROOT / f".build-{os.getpid()}"   # unique : le serveur de dev et un build manuel ne se marchent plus dessus
 CACHE = ROOT / ".cache" / "img"
 SITE = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
 
@@ -98,6 +98,43 @@ def process_images():
         result[name] = entry
     index_file.write_text(json.dumps(index, indent=1))
     return result
+
+
+# --------------------------------------------------------------------------- facebook
+FR_MONTHS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
+             "septembre", "octobre", "novembre", "décembre"]
+
+
+def dms(v, pos, neg):
+    hemi = pos if v >= 0 else neg
+    v = abs(v)
+    d = int(v)
+    m = int((v - d) * 60)
+    sec = round(((v - d) * 60 - m) * 60)
+    return f"{d}°{m:02d}′{sec:02d}″{hemi}"
+
+
+def facebook_data():
+    f = SRC / "data" / "facebook.json"
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {"page": {}, "posts": []}
+
+
+def facebook_posts_html(fb, images, base):
+    """Au plus deux publications marquées show=true, les plus récentes d'abord."""
+    posts = [p for p in fb.get("posts", []) if p.get("show")]
+    posts.sort(key=lambda p: p.get("date", ""), reverse=True)
+    out = []
+    for p in posts[:2]:
+        y, m, d = p["date"].split("-")
+        label = f"{int(d)} {FR_MONTHS[int(m) - 1]} {y}"
+        info = images.get(p.get("image", ""))
+        img = img_tag(p["image"], info, base, "", "(min-width: 960px) 220px, 90vw") if info else ""
+        text = html.escape(p.get("text", ""))
+        out.append(
+            f'<a class="fb-post reveal" href="{html.escape(p["url"], quote=True)}" target="_blank" rel="noopener">'
+            f'{img}<div><time class="mono" datetime="{p["date"]}">{label}</time><p>{text}</p>'
+            f'<span class="link-arrow">Voir sur Facebook <span aria-hidden="true">↗</span></span></div></a>')
+    return "\n".join(out)
 
 
 # --------------------------------------------------------------------------- hours
@@ -271,6 +308,7 @@ def main():
     TMP.mkdir(parents=True)
 
     images = process_images()
+    fb = facebook_data()
     base = SITE["basePath"]
     url = SITE["siteUrl"].rstrip("/")
 
@@ -308,6 +346,7 @@ def main():
         meta.setdefault("title", SITE["name"])
         meta.setdefault("description", "")
         meta.setdefault("nav", "")
+        meta.setdefault("body", "")
         meta["robots"] = "noindex,nofollow" if TEST_BUILD else meta.get("robots", "index,follow")
         ctx = {
             "site": {**SITE, "address": SITE["address"]},
@@ -323,6 +362,11 @@ def main():
             "test_banner": ('  <p class="test-banner" role="note">Version de test · site officiel : '
                             'jmiverandas.be</p>\n') if TEST_BUILD else "",
             "gallery_items": gallery_html(images, base),
+            "fb": fb["page"],
+            "fb_quote": fb.get("quote", {}),
+            "fb_posts": facebook_posts_html(fb, images, base),
+            "tape_ticks": "".join(f"<span>{i}</span>" for i in range(30)) + "<span>30+</span>",
+            "coords": f'{dms(SITE["geo"]["lat"], "N", "S")} {dms(SITE["geo"]["lon"], "E", "W")}',
             "head_extra": "".join(
                 f'  <link rel="preload" href="{base}assets/fonts/{f.strip()}.woff2" as="font" type="font/woff2" crossorigin>\n'
                 for f in meta.get("preload", "").split(",") if f.strip()),
