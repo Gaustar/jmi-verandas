@@ -126,7 +126,7 @@ for name, f in feats.items():
     out.append(f'<path class="zone-land" d="{path_for(f["geometry"], 2.6)}"/>')
 for name, label in SERVED.items():
     g = feats[name]["geometry"]
-    out.append(f'<path class="zone-served" data-province="{label}" d="{path_for(g, 1.3)}"/>')
+    out.append(f'<path class="zone-served" pathLength="1" data-province="{label}" d="{path_for(g, 1.3)}"/>')
 
 # libellés des provinces au centre du plus grand anneau
 for name, label in SERVED.items():
@@ -140,15 +140,15 @@ for name, label in SERVED.items():
     out.append(f'<text class="zone-label" x="{cx:.0f}" y="{cy:.0f}" text-anchor="middle">{label.upper()}</text>')
 
 # villes de réalisations (data-place : relié aux photos par places.js)
-for pid, (place, (lon, lat)) in PLACES.items():
+for n, (pid, (place, (lon, lat))) in enumerate(PLACES.items()):
     x, y = to_svg(lon, lat)
     anchor, dx = ("end", -10) if pid in ("arlon", "bertrix") else ("start", 10)
-    out.append(f'<g class="zone-place" data-place="{pid}"><circle cx="{x:.1f}" cy="{y:.1f}" r="5.5"/>'
+    out.append(f'<g class="zone-place" data-place="{pid}" style="--i:{n}"><circle cx="{x:.1f}" cy="{y:.1f}" r="5.5"/>'
                f'<text x="{x + dx:.1f}" y="{y + 4:.1f}" text-anchor="{anchor}">{place}</text></g>')
 
 # Corbion
 x, y = to_svg(*CORBION)
-out.append(f'<g class="zone-pin" transform="translate({x:.1f} {y:.1f})">'
+out.append(f'<g class="zone-pin" style="--i:5" transform="translate({x:.1f} {y:.1f})">'
            '<circle class="pulse" r="10"/><circle class="dot" r="7"/>'
            '<text x="-14" y="-10" text-anchor="end" class="pin-label">Corbion</text></g>')
 out.append("</svg>")
