@@ -13,8 +13,8 @@ GEO = json.loads((ROOT / "tools" / "data" / "belgium-provinces.geojson").read_te
 SERVED = {"Luxemburg": "Province de Luxembourg", "Namen": "Province de Namur"}
 CORBION = (5.0087, 49.7975)
 # Réalisations citées sur l'ancien site (Arlon, Marche, Bertrix, Beauraing)
-PLACES = {"Arlon": (5.8167, 49.6833), "Marche-en-Famenne": (5.3428, 50.2276),
-          "Bertrix": (5.2411, 49.8531), "Beauraing": (4.9556, 50.1097)}
+PLACES = {"arlon": ("Arlon", (5.8167, 49.6833)), "marche": ("Marche-en-Famenne", (5.3428, 50.2276)),
+          "bertrix": ("Bertrix", (5.2411, 49.8531)), "beauraing": ("Beauraing", (4.9556, 50.1097))}
 
 LAT0 = 50.0
 KX = math.cos(math.radians(LAT0))
@@ -139,11 +139,11 @@ for name, label in SERVED.items():
         cy -= 22
     out.append(f'<text class="zone-label" x="{cx:.0f}" y="{cy:.0f}" text-anchor="middle">{label.upper()}</text>')
 
-# villes de réalisations
-for place, (lon, lat) in PLACES.items():
+# villes de réalisations (data-place : relié aux photos par places.js)
+for pid, (place, (lon, lat)) in PLACES.items():
     x, y = to_svg(lon, lat)
-    anchor, dx = ("end", -9) if place in ("Arlon", "Bertrix") else ("start", 9)
-    out.append(f'<g class="zone-place"><circle cx="{x:.1f}" cy="{y:.1f}" r="4.5"/>'
+    anchor, dx = ("end", -10) if pid in ("arlon", "bertrix") else ("start", 10)
+    out.append(f'<g class="zone-place" data-place="{pid}"><circle cx="{x:.1f}" cy="{y:.1f}" r="5.5"/>'
                f'<text x="{x + dx:.1f}" y="{y + 4:.1f}" text-anchor="{anchor}">{place}</text></g>')
 
 # Corbion

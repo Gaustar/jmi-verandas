@@ -41,13 +41,26 @@ Photos : ~26 sur le site, dont 14 en bonne résolution (1867×1400) et 8 en 640�
 | Confidentialité | `/confidentialite/` | Remplace la politique de cookies Wix |
 | 404 | `/404.html` | Page d'erreur utile |
 
-## 4. Système visuel
+## 4. Système visuel (v3 « Dehors / Dedans »)
 
-- **Couleurs** (jetons CSS, clair + sombre) : bleu marque `#008BCC`, encre `#0D1A24`, papier pierre `#F6F2EB`, anthracite `#2B3138`. Mode sombre automatique selon le système + bouton.
-- **Typo** : Fraunces (titres, optical size 9–144) et Manrope (texte), hébergées en `woff2` latin.
-- **Mouvement** : apparitions douces au défilement, compteur, bandeau défilant, transitions de page (View Transitions), parallaxe CSS (`animation-timeline`) en amélioration progressive. Tout est coupé avec `prefers-reduced-motion`.
-- **Pièce signature** : le **simulateur de pergola bioclimatique** (SVG) : un curseur règle l'orientation des lames, la lumière et l'ombre changent. Il explique le produit sans un mot de marketing.
-- **Carte de zone** : provinces de Luxembourg et de Namur dessinées à partir des contours Statbel (ODbL), pin sur Corbion.
+**Idée.** Le slogan de Jean-Michel, « Allez dehors en restant dedans », porté par sa propre lumière : le liseré LED ambré
+de ses pergolas, sur de l'anthracite. Les concurrents de la région (revendeurs de marques, annuaires de devis) sont en
+bleu/blanc avec des catalogues de gammes ; ici, c'est un homme, un village et du sur-mesure.
+
+- **Matière** : anthracite des châssis et pierre de la Semois (clair/sombre via `light-dark()`), ambre `#FFB53D` comme
+  unique couleur d'action, bleu du logo conservé pour le logo seulement.
+- **Typo** : Bricolage Grotesque condensé (titres), Instrument Serif italique (mots d'accent : « dedans », « chez vous »),
+  Geist (texte), Geist Mono (cotes, étiquettes). Hébergées localement, 147 Ko au total.
+- **Langage de plan** : étiquettes en mono, repères de coupe ambrés autour des figures (« Fig. 02 »), cartouche de plan en
+  pied de page (entreprise, adresse, coordonnées GPS, TVA, horaires), numérotation des sections.
+- **Pièces signature** : le **mètre ruban** qui mesure ses 30 ans (défile au scroll), la fenêtre du hero qui s'ouvre
+  au défilement, les **lignes de métiers qui s'ouvrent** comme des lames, le **simulateur de pergola**, la **carte des
+  réalisations** (cliquer Arlon, Marche, Bertrix ou Beauraing affiche sa photo).
+- **Rien d'inventé** : slogan, liste « Collaborer avec JMI, c'est bénéficier de… », « les plus grandes marques, les
+  meilleurs matériaux, aux meilleurs prix », phrase d'invitation à contacter Mr Pierrot Jean-Michel : mots du site Wix.
+  Chiffres : 30+ ans (site), 100 % / 5 avis / 217 abonnés (page Facebook).
+- **Mouvement** : CSS scroll-driven (ruban, fenêtre du hero, barre de progression), transitions de page, apparitions
+  douces ; tout est coupé avec `prefers-reduced-motion` et dégrade proprement sans support.
 
 ## 5. Contact et devis
 
