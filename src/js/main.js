@@ -56,17 +56,34 @@
 
   /* ---------- Apparitions au défilement ---------- */
   var targets = document.querySelectorAll('.reveal');
-  targets.forEach(function (el, i) { el.style.setProperty('--d', (i % 4) * 0.08 + 's'); });
+  var seen = new Map();                               /* décalage dans un même groupe de frères : 0, 0,09 s, 0,18 s… */
+  targets.forEach(function (el) {
+    var n = seen.get(el.parentElement) || 0;
+    seen.set(el.parentElement, n + 1);
+    el.style.setProperty('--d', Math.min(n, 5) * 0.09 + 's');
+  });
+  /* Les éléments « wipe » sont masqués par clip-path : l'observateur ne les voit pas (0 % visible).
+     On observe donc leur conteneur et on les révèle avec lui. */
+  var watched = new Map();
+  function watch(node, el) {
+    var list = watched.get(node);
+    if (!list) { list = []; watched.set(node, list); }
+    if (list.indexOf(el) === -1) list.push(el);
+  }
+  targets.forEach(function (el) { watch(el.classList.contains('wipe') ? el.parentElement : el, el); });
+
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add('in');
-        entry.target.querySelectorAll('.count').forEach(countUp);
+        (watched.get(entry.target) || []).forEach(function (el) {
+          el.classList.add('in');
+          el.querySelectorAll('.count').forEach(countUp);
+        });
         io.unobserve(entry.target);
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-    targets.forEach(function (el) { io.observe(el); });
+    watched.forEach(function (_list, node) { io.observe(node); });
   } else {
     targets.forEach(function (el) { el.classList.add('in'); });
   }

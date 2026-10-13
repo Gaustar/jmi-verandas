@@ -59,8 +59,16 @@ v3 a apporté sur le fond.
   - section **Facebook** (100 %, 5 avis, un avis réel, lien vers la page ; pas de publications) ;
   - pied de page avec la note Facebook ; bandeau d'appel avec sa phrase d'invitation.
 - **Rien d'inventé** : slogan, listes et phrases = mots du site Wix ; chiffres = site Wix et page Facebook.
-- **Mouvement** : défilement du ruban (scroll-driven CSS), dérive de la photo, transitions de page, apparitions douces ;
-  coupé avec `prefers-reduced-motion`, dégrade proprement sans support.
+- **Mouvement** (règle : jamais sur le texte en cours de lecture ; durées < 1,5 s ; on joue sur les objets, une seule fois) :
+  - texte : fondu + léger décalage vertical, par groupes (les cartes arrivent l'une après l'autre) ;
+  - citation et « Les plus grandes marques… » : balayage de gauche à droite ;
+  - chiffres du hero et « 100 % » : comptage de 0 à la valeur ;
+  - traits : intitulés qui se dessinent, filet bleu sous chaque ligne de la liste ;
+  - photos : léger zoom arrière à l'arrivée ; carte des réalisations : contour des provinces tracé, puis communes une à une,
+    photo punaisée qui pivote ; ruban 30 ans et photo du hero liés au défilement (CSS scroll-driven) ;
+  - coupé avec `prefers-reduced-motion` (tout est affiché immédiatement) ; sans JavaScript, tout est visible.
+- **Piège connu** : un élément masqué par `clip-path` n'est pas détecté par IntersectionObserver ; `main.js` observe donc
+  son conteneur.
 
 ## 5. Contact et devis
 
