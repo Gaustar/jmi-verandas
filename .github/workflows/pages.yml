@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pillow
-      - name: Relire les dernières publications Facebook (sans jeton : ne fait rien)
+      - name: "Relire les dernières publications Facebook (sans jeton, ne fait rien)"
         run: python tools/fetch_facebook.py
         env:
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
