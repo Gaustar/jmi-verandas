@@ -244,7 +244,7 @@ h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.3rem; line
 
 /* --- simulateur de pergola --- */
 .sim {
-  --sun: 1; --o: 0.55; --rain-in: 0;
+  --sun: 1; --o: 0.55; --rain-in: 0; --night: 0; --led: 0;
   --sim-sky-1: light-dark(#79c1f1, #17344d); --sim-sky-2: light-dark(#d3ecfa, #2c5069);
   background: light-dark(#dcebf4, #0e1c28);
 }
@@ -587,13 +587,12 @@ html:not(.js) .sim, html:not(.js) .wizard { display: none; }
   @keyframes drift { from { transform: scale(1.12) translateY(-3.5%); } to { transform: scale(1.12) translateY(3.5%); } }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-  .js .reveal { opacity: 1; transform: none; }
-  .marquee-track { animation: none; }
-  .sim-rain line { animation: none; }
-}
+/* mouvement désactivé (système ou interrupteur du pied de page) */
+html.no-motion { scroll-behavior: auto; }
+.no-motion *, .no-motion *::before, .no-motion *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+.js.no-motion .reveal { opacity: 1; transform: none; }
+.no-motion .marquee-track { animation: none; }
+.no-motion .sim-rain line { animation: none; }
 
 /* ---------- 11. Responsive ---------- */
 @media (max-width: 1080px) {
@@ -751,7 +750,7 @@ html:not(.js) .sim, html:not(.js) .wizard { display: none; }
   @keyframes tape { from { transform: translateX(0); } to { transform: translateX(calc(-100% + 100cqw)); } }
 }
 @supports not (animation-timeline: view()) { .tape-track { transform: translateX(calc(-100% + 100cqw)); } }
-@media (prefers-reduced-motion: reduce) { .tape-track { animation: none; transform: translateX(calc(-100% + 100cqw)); } }
+.no-motion .tape-track { animation: none; transform: translateX(calc(-100% + 100cqw)); }
 
 @media (max-width: 960px) {
   .why-grid, .places-grid, .fb-card { grid-template-columns: 1fr; }
@@ -808,13 +807,97 @@ html:not(.js) .sim, html:not(.js) .wizard { display: none; }
 @media (max-width: 960px) { .js .place-shots.reveal, .js .place-shots.reveal.in { transform: none; } }
 
 /* mouvement réduit : tout est affiché tout de suite, dans son état final */
-@media (prefers-reduced-motion: reduce) {
-  .js .wipe.reveal, .js .wipe.reveal.in { clip-path: none; }
-  .js .eyebrow.reveal::before { width: 28px; }
-  .js .specs li.reveal::after { width: 64px; }
-  .js .card--photo.reveal .card-bg, .js .mosaic.reveal img, .js .tile.reveal img, .js .sim3d figure.reveal img { transform: none; }
-  .js .zone-map.reveal .zone-served { stroke-dashoffset: 0; fill-opacity: 1; }
-  .js .zone-map.reveal .zone-place, .js .zone-map.reveal .zone-pin { opacity: 1; }
-  .js .place-shots.reveal { transform: rotate(-2deg); }
+/* mouvement désactivé (système ou interrupteur du pied de page) */
+.js.no-motion .wipe.reveal, .js.no-motion .wipe.reveal.in { clip-path: none; }
+.js.no-motion .eyebrow.reveal::before { width: 28px; }
+.js.no-motion .specs li.reveal::after { width: 64px; }
+.js.no-motion .card--photo.reveal .card-bg, .js.no-motion .mosaic.reveal img, .js.no-motion .tile.reveal img, .js.no-motion .sim3d figure.reveal img { transform: none; }
+.js.no-motion .zone-map.reveal .zone-served { stroke-dashoffset: 0; fill-opacity: 1; }
+.js.no-motion .zone-map.reveal .zone-place, .js.no-motion .zone-map.reveal .zone-pin { opacity: 1; }
+.js.no-motion .place-shots.reveal { transform: rotate(-2deg); }
+@media (max-width: 960px) { .js.no-motion .place-shots.reveal { transform: none; } }
+
+/* ==========================================================================
+   v5 : un mouvement qu'on remarque, qui raconte le produit, sans gêner la lecture
+   ========================================================================== */
+/* titres : les mots montent un à un derrière un masque */
+.js .split .w { display: inline-block; overflow: hidden; vertical-align: top; padding: 0.1em 0.08em 0.16em; margin: -0.1em -0.08em -0.16em; }
+.js .split .wi { display: inline-block; transform: translateY(115%); transition: transform 1s var(--ease); transition-delay: calc(var(--i, 0) * 0.06s + var(--d, 0s)); }
+.js .split.in .wi { transform: none; }
+.js .split.reveal, .js .hero .split.reveal, .js .page-hero .split.reveal { opacity: 1; transform: none; transition: none; animation: none; }
+
+/* hero : la photo est derrière une baie vitrée qui s'ouvre quand elle arrive à l'écran */
+.glass { display: none; }
+.js .glass { display: block; position: absolute; top: 0; bottom: 0; z-index: 4; width: 50.5%; pointer-events: none; border-top: 7px solid #2b3138; border-bottom: 7px solid #2b3138;
+  background: linear-gradient(115deg, rgb(255 255 255 / 0.4), rgb(255 255 255 / 0.12) 45%, rgb(255 255 255 / 0.32)); backdrop-filter: blur(16px) saturate(1.15); -webkit-backdrop-filter: blur(16px) saturate(1.15); }
+.js .glass::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, transparent 0 52px, rgb(255 255 255 / 0.16) 52px 58px); }
+.js .glass--l { left: 0; border-right: 8px solid #2b3138; border-top-left-radius: var(--r-xl); border-bottom-left-radius: var(--r-xl); }
+.js .glass--r { right: 0; border-left: 8px solid #2b3138; border-top-right-radius: var(--r-xl); border-bottom-right-radius: var(--r-xl); }
+.js .hero-media.in .glass--l { animation: door-l 1.7s var(--ease) 0.25s both; }
+.js .hero-media.in .glass--r { animation: door-r 1.7s var(--ease) 0.25s both; }
+@keyframes door-l { 0% { transform: translateX(0); } 99% { visibility: visible; } 100% { transform: translateX(-102%); visibility: hidden; } }
+@keyframes door-r { 0% { transform: translateX(0); } 99% { visibility: visible; } 100% { transform: translateX(102%); visibility: hidden; } }
+
+/* en-tête : se range quand on descend, revient dès qu'on remonte */
+.site-header { transition: background-color 0.4s, box-shadow 0.4s, padding 0.4s, transform 0.5s var(--ease); }
+.site-header.is-hidden { transform: translateY(-110%); }
+body:has(.site-header.is-hidden) .subnav-wrap { top: 8px; }
+
+/* cartes : un reflet suit le curseur */
+.card::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity 0.35s;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgb(0 139 204 / 0.14), transparent 62%); }
+.card--photo::before { background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgb(255 255 255 / 0.22), transparent 62%); }
+@media (hover: hover) { .card:hover::before { opacity: 1; } }
+
+/* « Une journée sous la pergola » : la scène est épinglée, le défilement fait passer le temps */
+.sim { padding: 0; }
+.sim-sticky { padding: clamp(70px, 9vw, 130px) 0; }
+.story .sim-pin { height: 400vh; }
+.story .sim-sticky { position: sticky; top: 0; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: calc(var(--header-h) + 12px) 0 28px; }
+.story .sim-sticky > .wrap { width: min(100% - var(--gutter) * 2, var(--max)); }
+.sim-lead { color: var(--text); max-width: 46ch; }
+.sim-state { min-height: 3.6em; }
+.sim-hand { margin-top: 18px; border-top: 1px solid var(--line-strong); padding-top: 14px; }
+.sim-hand summary { cursor: pointer; font-weight: 700; padding: 6px 0; list-style: none; display: inline-flex; align-items: center; gap: 10px; }
+.sim-hand summary::-webkit-details-marker { display: none; }
+.sim-hand summary::before { content: "+"; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--line-strong); font-weight: 600; transition: transform 0.3s var(--ease); }
+.sim-hand[open] summary::before { content: "−"; }
+.sim-hand .sim-controls { margin-top: 14px; }
+.sim-hand .meters { margin-top: 18px; }
+
+.story-rail { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 6px 0 2px; padding-top: 16px; }
+.story-rail::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; border-radius: 4px; background: var(--line-strong); }
+.story-fill { position: absolute; left: 0; top: 0; height: 4px; width: calc(var(--p, 0) * 100%); border-radius: 4px; background: var(--brand); box-shadow: 0 0 12px rgb(0 139 204 / 0.6); }
+.story-rail button { min-height: 44px; border: 1.5px solid var(--line-strong); border-radius: 999px; background: transparent; cursor: pointer; font-weight: 700; font-size: 0.93rem; transition: background-color 0.25s, color 0.25s, border-color 0.25s; }
+.story-rail button:hover { border-color: var(--text); }
+.story-rail button.is-on { background: var(--action); border-color: var(--action); color: #fff; }
+
+/* la scène : soleil mobile, nuit, fenêtre et éclairage qui s'allument */
+.sim-sun { transform: translate(var(--sun-x, 0px), var(--sun-y, 0px)); }
+.sim .s-window { fill: var(--win, light-dark(#a9d0e8, #1f3b50)); }
+.s-night { fill: #040813; opacity: calc(var(--night, 0) * 0.62); pointer-events: none; }
+.s-win-glow { fill: #ffd27a; opacity: calc(var(--night, 0) * 0.62); filter: blur(2px); pointer-events: none; }
+.s-led { stroke: #ffcf70; stroke-width: 3.2; stroke-linecap: round; opacity: var(--led, 0); filter: drop-shadow(0 0 7px #ffb53d); }
+.s-led-spill { fill: #ffcf70; opacity: calc(var(--led, 0) * 0.42); filter: blur(14px); pointer-events: none; }
+
+/* interrupteur d'animations */
+.motion-toggle { margin-right: 14px; padding: 6px 14px; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; cursor: pointer; font: 600 0.82rem var(--font-body); color: inherit; }
+.motion-toggle:hover { background: var(--text); color: var(--bg); }
+
+@media (max-width: 960px) {
+  .story .sim-sticky { align-items: flex-start; padding-top: calc(var(--header-h) + 8px); }
+  .sim-stage { order: -1; }
+  .sim-lead { display: none; }
 }
-@media (prefers-reduced-motion: reduce) and (max-width: 960px) { .js .place-shots.reveal { transform: none; } }
+@media (max-width: 680px) {
+  .story .sim-pin { height: 340vh; }
+  .sim-sticky .h2 { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+  .story-rail button { font-size: 0.85rem; padding: 0 4px; }
+}
+
+/* mouvement désactivé : tout le nouveau est neutralisé */
+.no-motion .split .wi { transform: none; transition: none; }
+.no-motion .glass { display: none !important; }
+.no-motion .site-header.is-hidden { transform: none; }
+.no-motion .card::before { display: none; }
+.no-motion .sim-pin { height: auto !important; }
