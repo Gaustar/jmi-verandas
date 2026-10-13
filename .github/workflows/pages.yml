@@ -1,0 +1,47 @@
+# Déploiement de TEST sur GitHub Pages : https://gaustar.github.io/jmi-verandas/
+# Le site officiel reste jmiverandas.be (Wix). Cette version est marquée « noindex » et porte un bandeau « Version de test ».
+name: Déploiement de test (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Construire le site (mode test)
+        run: python tools/build.py
+        env:
+          TEST_BUILD: "1"
+          SITE_URL: https://gaustar.github.io      # origine seule : le chemin vient de BASE_PATH
+          BASE_PATH: /jmi-verandas/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

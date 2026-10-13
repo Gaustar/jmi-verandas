@@ -1,0 +1,35 @@
+{
+  "name": "JMI Vérandas",
+  "owner": "Pierrot Jean-Michel",
+  "tagline": "Vérandas, pergolas, stores, volets, portes, fenêtres et châssis",
+  "siteUrl": "https://www.jmiverandas.be",
+  "basePath": "/",
+  "phone": "0471 55 39 94",
+  "phoneIntl": "+32471553994",
+  "email": "perspectives.jmich@gmail.com",
+  "vat": "BE0718441089",
+  "facebook": "https://www.facebook.com/JMI.pierrotjeanmichel",
+  "address": {
+    "street": "Rue du Chairi 29",
+    "zip": "6838",
+    "city": "Corbion",
+    "area": "Bouillon",
+    "region": "Province de Luxembourg",
+    "country": "BE"
+  },
+  "geo": { "lat": 49.7975, "lon": 5.0087 },
+  "areaServed": ["Province de Luxembourg", "Province de Namur"],
+  "experienceYears": 30,
+  "hoursNote": "Sur rendez-vous",
+  "hours": {
+    "mon": [["09:00", "12:00"], ["14:00", "18:00"]],
+    "tue": [["09:00", "12:00"], ["14:00", "18:00"]],
+    "wed": [["09:00", "12:00"], ["14:00", "18:00"]],
+    "thu": [["09:00", "12:00"], ["14:00", "18:00"]],
+    "fri": [["09:00", "12:00"], ["14:00", "18:00"]],
+    "sat": [],
+    "sun": []
+  },
+  "formEndpoint": "",
+  "year": 2026
+}

@@ -1,0 +1,41 @@
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{page.title}}</title>
+  <meta name="description" content="{{page.description}}">
+  <meta name="robots" content="{{page.robots}}">
+  <link rel="canonical" href="{{canonical}}">
+  <meta name="theme-color" content="#008bcc">
+  <meta name="color-scheme" content="light dark">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_BE">
+  <meta property="og:site_name" content="{{site.name}}">
+  <meta property="og:title" content="{{page.title}}">
+  <meta property="og:description" content="{{page.description}}">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:image" content="{{og_image}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pergola bioclimatique installée par JMI Vérandas">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="{{base}}favicon.ico" sizes="32x32">
+  <link rel="icon" href="{{base}}favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="{{base}}apple-touch-icon.png">
+  <link rel="manifest" href="{{base}}site.webmanifest">
+
+  <link rel="preload" href="{{base}}assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{base}}assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+{{head_extra}}  <link rel="stylesheet" href="{{base}}assets/css/styles.css?v={{v}}">
+
+  <script>
+    /* Thème choisi : appliqué avant l'affichage pour éviter tout flash */
+    try {
+      var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('jmi-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+
+  <script type="application/ld+json">
+{{jsonld}}
+  </script>

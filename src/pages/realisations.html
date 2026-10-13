@@ -1,0 +1,44 @@
+<!--meta
+title: Réalisations · Vérandas, pergolas et châssis posés en Luxembourg et Namur | JMI Vérandas
+description: Photos de vérandas, pergolas bioclimatiques, stores, volets, fenêtres et portes de garage posés par JMI Vérandas à Arlon, Marche, Bertrix, Beauraing et dans les provinces de Luxembourg et de Namur.
+nav: gallery
+scripts: gallery, lightbox
+-->
+
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow reveal">Réalisations</p>
+        <h1 class="page-title reveal">Des projets sur mesure, posés chez vous.</h1>
+        <div class="page-hero-grid">
+          <p class="lead reveal">
+            Vérandas, pergolas, stores, volets, châssis&nbsp;: un aperçu de nos installations dans les provinces de
+            Luxembourg et de Namur. Touchez une photo pour l'agrandir.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--flush" aria-label="Galerie">
+      <div class="wrap">
+        <div class="filters" role="group" aria-label="Filtrer les réalisations">
+          <button type="button" class="chip-btn is-on" data-filter="all" aria-pressed="true">Tout</button>
+          <button type="button" class="chip-btn" data-filter="verandas" aria-pressed="false">Vérandas</button>
+          <button type="button" class="chip-btn" data-filter="pergolas" aria-pressed="false">Pergolas</button>
+          <button type="button" class="chip-btn" data-filter="stores" aria-pressed="false">Stores &amp; protections solaires</button>
+          <button type="button" class="chip-btn" data-filter="volets" aria-pressed="false">Volets &amp; portes de garage</button>
+          <button type="button" class="chip-btn" data-filter="fenetres" aria-pressed="false">Fenêtres &amp; façades</button>
+          <button type="button" class="chip-btn" data-filter="3d" aria-pressed="false">Simulations 3D</button>
+        </div>
+        <p class="filter-count" id="filter-count" aria-live="polite"></p>
+
+        <div class="masonry" id="masonry">
+{{gallery_items}}
+        </div>
+
+        <p class="note-small">
+          Vous avez un projet similaire&nbsp;? <a href="{{base}}contact/">Parlons-en</a>.
+        </p>
+      </div>
+    </section>
+
+{{> cta}}
