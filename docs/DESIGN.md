@@ -41,26 +41,26 @@ Photos : ~26 sur le site, dont 14 en bonne résolution (1867×1400) et 8 en 640�
 | Confidentialité | `/confidentialite/` | Remplace la politique de cookies Wix |
 | 404 | `/404.html` | Page d'erreur utile |
 
-## 4. Système visuel (v3 « Dehors / Dedans »)
+## 4. Système visuel (v4 : le design précédent, amélioré)
 
-**Idée.** Le slogan de Jean-Michel, « Allez dehors en restant dedans », porté par sa propre lumière : le liseré LED ambré
-de ses pergolas, sur de l'anthracite. Les concurrents de la région (revendeurs de marques, annuaires de devis) sont en
-bleu/blanc avec des catalogues de gammes ; ici, c'est un homme, un village et du sur-mesure.
+Historique : v2 (sobre, serif et bleu) → v3 « Dehors / Dedans » (sombre, ambre, condensé ; conservé dans le tag Git
+`design-v3-dehors-dedans`) → **v4**, qui revient à l'esprit de la v2 parce qu'il plaît davantage, en gardant ce que la
+v3 a apporté sur le fond.
 
-- **Matière** : anthracite des châssis et pierre de la Semois (clair/sombre via `light-dark()`), ambre `#FFB53D` comme
-  unique couleur d'action, bleu du logo conservé pour le logo seulement.
-- **Typo** : Bricolage Grotesque condensé (titres), Instrument Serif italique (mots d'accent : « dedans », « chez vous »),
-  Geist (texte), Geist Mono (cotes, étiquettes). Hébergées localement, 147 Ko au total.
-- **Langage de plan** : étiquettes en mono, repères de coupe ambrés autour des figures (« Fig. 02 »), cartouche de plan en
-  pied de page (entreprise, adresse, coordonnées GPS, TVA, horaires), numérotation des sections.
-- **Pièces signature** : le **mètre ruban** qui mesure ses 30 ans (défile au scroll), la fenêtre du hero qui s'ouvre
-  au défilement, les **lignes de métiers qui s'ouvrent** comme des lames, le **simulateur de pergola**, la **carte des
-  réalisations** (cliquer Arlon, Marche, Bertrix ou Beauraing affiche sa photo).
-- **Rien d'inventé** : slogan, liste « Collaborer avec JMI, c'est bénéficier de… », « les plus grandes marques, les
-  meilleurs matériaux, aux meilleurs prix », phrase d'invitation à contacter Mr Pierrot Jean-Michel : mots du site Wix.
-  Chiffres : 30+ ans (site), 100 % / 5 avis / 217 abonnés (page Facebook).
-- **Mouvement** : CSS scroll-driven (ruban, fenêtre du hero, barre de progression), transitions de page, apparitions
-  douces ; tout est coupé avec `prefers-reduced-motion` et dégrade proprement sans support.
+- **Identité conservée** : Fraunces (titres, italique bleu), Manrope (texte), bleu du logo, papier pierre, cartes et
+  boutons arrondis, thème clair/sombre via `light-dark()`.
+- **Améliorations** :
+  - hero plus large avec trois **cartes de preuve** posées sur la photo (30+ ans, 100 % Facebook, devis gratuit) ;
+  - cinq produits sur huit avec leur photo (au lieu de deux) ;
+  - **mètre ruban** bleu qui défile : « Trente ans, ça se mesure » ;
+  - la liste **« Collaborer avec JMI, c'est bénéficier de… »** (ses mots) avec croquis et simulation 3D ;
+  - bloc **« Les plus grandes marques. Les meilleurs matériaux. Aux meilleurs prix. »** (ses mots) ;
+  - **carte des réalisations** cliquable (Arlon, Marche, Bertrix, Beauraing) avec photo « punaisée » ;
+  - section **Facebook** (100 %, 5 avis, un avis réel, publications pilotables) ;
+  - pied de page avec la note Facebook ; bandeau d'appel avec sa phrase d'invitation.
+- **Rien d'inventé** : slogan, listes et phrases = mots du site Wix ; chiffres = site Wix et page Facebook.
+- **Mouvement** : défilement du ruban (scroll-driven CSS), dérive de la photo, transitions de page, apparitions douces ;
+  coupé avec `prefers-reduced-motion`, dégrade proprement sans support.
 
 ## 5. Contact et devis
 

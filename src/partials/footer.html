@@ -1,51 +1,53 @@
   <footer class="site-footer">
     <div class="wrap">
-      <div class="footer-sign">
-        <p>Allez dehors, <em class="serif">en restant dedans.</em></p>
-        <img src="{{base}}assets/img/logo.png" alt="{{site.name}}" width="148" height="69" loading="lazy">
-      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="{{base}}assets/img/logo.png" alt="{{site.name}}" width="148" height="69" loading="lazy">
+          <p>{{site.tagline}}.</p>
+          <p class="muted">Corbion-sur-Semois, près de Bouillon.<br>Provinces de Luxembourg et de Namur.</p>
+        </div>
 
-      <div class="cartouche">
-        <div class="wide">
-          <span class="label">Entreprise</span>
-          {{site.name}} · {{site.owner}}<br>
-          <span class="muted">{{site.tagline}}.</span>
+        <nav aria-label="Pied de page">
+          <h2 class="footer-title">Le site</h2>
+          <ul>
+            <li><a href="{{base}}">Accueil</a></li>
+            <li><a href="{{base}}verandas-chassis/">Véranda &amp; châssis</a></li>
+            <li><a href="{{base}}realisations/">Réalisations</a></li>
+            <li><a href="{{base}}contact/">Contact et devis</a></li>
+            <li><a href="{{base}}confidentialite/">Confidentialité</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="footer-title">Contact</h2>
+          <address>
+            {{site.owner}}<br>
+            {{site.address.street}}<br>
+            {{site.address.zip}} {{site.address.city}}<br>
+            <a href="tel:{{site.phoneIntl}}">{{site.phone}}</a><br>
+            <a href="mailto:{{site.email}}">{{site.email}}</a>
+          </address>
+          <p class="footer-social">
+            <a href="{{site.facebook}}" rel="noopener" target="_blank" aria-label="JMI Vérandas sur Facebook (nouvelle fenêtre)">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8.2h2.8l.5-3.3h-3.3V8.4c0-.9.4-1.7 1.8-1.7h1.6V3.8c-.3 0-1.3-.2-2.4-.2-2.5 0-4.1 1.5-4.1 4.2v2.7H7.6v3.3h2.8V22h3.1Z"/></svg>
+              Facebook
+            </a><br>
+            <span class="muted small">Recommandé par {{fb.recommend_percent}} % ({{fb.reviews}} avis)</span>
+          </p>
         </div>
-        <div class="wide">
-          <span class="label">Adresse</span>
-          <address>{{site.address.street}}, {{site.address.zip}} {{site.address.city}} (Bouillon)<br>
-            <span class="muted">{{coords}}</span></address>
-        </div>
-        <div><span class="label">Téléphone</span><a href="tel:{{site.phoneIntl}}">{{site.phone}}</a></div>
-        <div><span class="label">E-mail</span><a href="mailto:{{site.email}}">{{site.email}}</a></div>
-        <div><span class="label">N° d'entreprise (TVA)</span>{{site.vat}}</div>
-        <div><span class="label">Zone</span>Provinces de Luxembourg et de Namur</div>
-        <div class="wide">
-          <span class="label">Horaires · {{site.hoursNote}}</span>
+
+        <div>
+          <h2 class="footer-title">Horaires</h2>
           <table class="hours hours--compact"><tbody>
 {{hours_table}}
           </tbody></table>
-        </div>
-        <div>
-          <span class="label">Plan du site</span>
-          <nav aria-label="Pied de page">
-            <a href="{{base}}">Accueil</a><br>
-            <a href="{{base}}verandas-chassis/">Véranda &amp; châssis</a><br>
-            <a href="{{base}}realisations/">Réalisations</a><br>
-            <a href="{{base}}contact/">Contact et devis</a><br>
-            <a href="{{base}}confidentialite/">Confidentialité</a>
-          </nav>
-        </div>
-        <div>
-          <span class="label">Facebook</span>
-          <a href="{{site.facebook}}" rel="noopener" target="_blank">JMI Pierrot jean-michel ↗<span class="sr-only"> (nouvelle fenêtre)</span></a>
-          <p class="muted small">Recommandé par {{fb.recommend_percent}} % ({{fb.reviews}} avis)</p>
+          <p class="muted small">{{site.hoursNote}}.</p>
         </div>
       </div>
 
       <div class="footer-bottom">
         <p>© {{year}} {{site.name}} · TVA {{site.vat}}</p>
-        <p><a href="{{base}}confidentialite/">Confidentialité</a> · <a href="#top">Haut de page ↑</a></p>
+        <p><a href="{{base}}confidentialite/">Confidentialité</a> · <a href="#top" class="to-top">Haut de page ↑</a></p>
       </div>
     </div>
   </footer>

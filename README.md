@@ -3,6 +3,9 @@
 Site vitrine de JMI Vérandas. Statique, sans framework, **en local** : rien n'est publié.
 Plan et décisions : [docs/DESIGN.md](docs/DESIGN.md).
 
+Versions du design : `main` = v4 (v2 améliorée). L'ancien design sombre « Dehors / Dedans » reste récupérable avec
+`git checkout design-v3-dehors-dedans`.
+
 ## Lancer
 
 ```bash
