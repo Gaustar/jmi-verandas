@@ -56,7 +56,7 @@ v3 a apporté sur le fond.
   - la liste **« Collaborer avec JMI, c'est bénéficier de… »** (ses mots) avec croquis et simulation 3D ;
   - bloc **« Les plus grandes marques. Les meilleurs matériaux. Aux meilleurs prix. »** (ses mots) ;
   - **carte des réalisations** cliquable (Arlon, Marche, Bertrix, Beauraing) avec photo « punaisée » ;
-  - section **Facebook** (100 %, 5 avis, un avis réel, publications pilotables) ;
+  - section **Facebook** (100 %, 5 avis, un avis réel, lien vers la page ; pas de publications) ;
   - pied de page avec la note Facebook ; bandeau d'appel avec sa phrase d'invitation.
 - **Rien d'inventé** : slogan, listes et phrases = mots du site Wix ; chiffres = site Wix et page Facebook.
 - **Mouvement** : défilement du ruban (scroll-driven CSS), dérive de la photo, transitions de page, apparitions douces ;

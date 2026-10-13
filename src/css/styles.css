@@ -745,14 +745,6 @@ html:not(.js) .sim, html:not(.js) .wizard { display: none; }
 .fb-quote cite { display: block; margin-top: 12px; font: 600 0.88rem var(--font-body); font-style: normal; letter-spacing: 0; color: var(--muted); }
 .fb-meta { margin-bottom: 22px; color: var(--muted); }
 .fb-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.fb-posts { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
-.fb-posts:empty { display: none; }
-.fb-post { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 18px; border-radius: var(--r-lg); background: var(--surface); border: 1px solid var(--line); text-decoration: none; transition: border-color 0.3s, transform 0.5s var(--ease); }
-.fb-post:hover { border-color: var(--brand); transform: translateY(-3px); }
-.fb-post img { width: 100%; height: 100%; min-height: 150px; object-fit: cover; border-radius: var(--r-md); }
-.fb-post time { display: block; margin-bottom: 10px; color: var(--blue-text); font-weight: 700; font-size: 0.88rem; }
-.fb-post p { margin: 0; }
-.fb-post .link-arrow { margin-top: 12px; min-height: 0; }
 
 @supports (animation-timeline: scroll()) {
   .tape-track { animation: tape linear both; animation-timeline: view(); animation-range: entry 10% cover 55%; }
@@ -762,11 +754,10 @@ html:not(.js) .sim, html:not(.js) .wizard { display: none; }
 @media (prefers-reduced-motion: reduce) { .tape-track { animation: none; transform: translateX(calc(-100% + 100cqw)); } }
 
 @media (max-width: 960px) {
-  .why-grid, .places-grid, .fb-card, .fb-posts { grid-template-columns: 1fr; }
+  .why-grid, .places-grid, .fb-card { grid-template-columns: 1fr; }
   .sim3d { position: static; grid-template-columns: 1fr 1fr; }
   .places-stage { max-width: none; padding-bottom: 0; }
   .place-shots { position: relative; left: auto; bottom: auto; width: 100%; margin-top: 18px; transform: none; }
-  .fb-post { grid-template-columns: 160px 1fr; }
 }
 @media (max-width: 680px) {
   .hero-proof { grid-template-columns: 1fr; margin: -30px 0 0; gap: 10px; }
@@ -778,6 +769,4 @@ html:not(.js) .sim, html:not(.js) .wizard { display: none; }
   .sim3d { grid-template-columns: 1fr; }
   .statement { padding: 34px 24px; border-radius: var(--r-lg); }
   .fb-card { border-radius: var(--r-lg); }
-  .fb-post { grid-template-columns: 1fr; }
-  .fb-post img { min-height: 0; aspect-ratio: 16 / 10; }
 }
