@@ -3,8 +3,8 @@
 Site vitrine de JMI Vérandas. Statique, sans framework, **en local** : rien n'est publié.
 Plan et décisions : [docs/DESIGN.md](docs/DESIGN.md).
 
-Versions du design : `main` = v4 (v2 améliorée). L'ancien design sombre « Dehors / Dedans » reste récupérable avec
-`git checkout design-v3-dehors-dedans`.
+Versions du design : branche `refonte-v6` = v6 « son site, en mieux » (voir docs/AUDIT-2026-10.md). Anciennes
+versions : `git checkout design-v5-journee-pergola` (v5) ou `design-v3-dehors-dedans` (v3).
 
 ## Lancer
 
@@ -20,13 +20,13 @@ Prérequis : Python 3 et Pillow (déjà présents sur cette machine). Aucune dé
 
 | Je veux changer… | Fichier |
 |---|---|
-| téléphone, e-mail, adresse, horaires, TVA, années d'expérience, lien Facebook | `site.json` |
+| téléphone (GSM et fixe), e-mail, adresse, horaires, TVA, années d'expérience, lien Facebook, affichage des avis (`showReviews`) | `site.json` |
 | un texte de page | `src/pages/*.html` |
 | en-tête, pied de page, bandeau « Un projet ? » | `src/partials/*.html` |
-| les photos de la page Réalisations (légende, catégories) | `src/data/gallery.json` |
+| les photos de la page Réalisations (ordre, texte alternatif, légende seulement si elle vient du site d'origine) | `src/data/gallery.json` |
 | ajouter une photo | la déposer dans `src/img-src/` (nom sans espace) ; le build crée les tailles WebP |
 | couleurs, polices, espacements | `src/css/styles.css` (jetons en haut du fichier) |
-| note Facebook (100 %, 5 avis, abonnés) et avis cité | `src/data/facebook.json` |
+| note Facebook et avis cité (masqués tant que `showReviews` est faux ; aperçu : `?avis=1`) | `src/data/facebook.json` |
 | envoi direct du formulaire de devis | `site.json` → `formEndpoint` (voir ci-dessous) |
 
 `public/` est généré : ne pas le modifier à la main.

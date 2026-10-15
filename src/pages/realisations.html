@@ -1,47 +1,26 @@
 <!--meta
-title: Réalisations · Vérandas, pergolas et châssis posés en Luxembourg et Namur | JMI Vérandas
-description: Photos de vérandas, pergolas bioclimatiques, stores, volets, fenêtres et portes de garage posés par JMI Vérandas à Arlon, Marche, Bertrix, Beauraing et dans les provinces de Luxembourg et de Namur.
+title: Réalisations · vérandas, pergolas, stores et châssis · JMI Verandas
+description: Réalisations sur mesure de JMI Verandas : vérandas, pergolas, stores, volets, portes et fenêtres à Arlon, Marche, Bertrix, Beauraing et dans les provinces de Luxembourg et de Namur.
 nav: gallery
-scripts: gallery, lightbox, places
+scripts: lightbox, places
 -->
 
-    <section class="page-hero">
+    <section class="page-hero page-hero--plain" aria-labelledby="page-title">
       <div class="wrap">
-        <p class="eyebrow reveal">Réalisations</p>
-        <h1 class="page-title reveal">Des projets sur mesure, posés chez vous.</h1>
-        <div class="page-hero-grid">
-          <p class="lead reveal">
-            Vérandas, pergolas, stores, volets, châssis&nbsp;: un aperçu de nos installations dans les provinces de
-            Luxembourg et de Namur. Touchez une photo pour l'agrandir.
-          </p>
-        </div>
+        <p class="eyebrow">Réalisations</p>
+        <h1 class="page-title" id="page-title">Des réalisations sur mesure</h1>
+        <p class="lead">Nous proposons des produits de qualité et sur mesure parmi les plus grandes marques.</p>
+      </div>
+    </section>
+
+    <section class="section section--flush" aria-label="Photos des réalisations">
+      <div class="wrap gallery">
+{{gallery_items}}
       </div>
     </section>
 
 {{> places}}
 
-    <section class="section section--flush" aria-label="Galerie">
-      <div class="wrap">
-        <p class="eyebrow">Toutes les photos</p>
-        <div class="filters" role="group" aria-label="Filtrer les réalisations">
-          <button type="button" class="chip-btn is-on" data-filter="all" aria-pressed="true">Tout</button>
-          <button type="button" class="chip-btn" data-filter="verandas" aria-pressed="false">Vérandas</button>
-          <button type="button" class="chip-btn" data-filter="pergolas" aria-pressed="false">Pergolas</button>
-          <button type="button" class="chip-btn" data-filter="stores" aria-pressed="false">Stores &amp; protections solaires</button>
-          <button type="button" class="chip-btn" data-filter="volets" aria-pressed="false">Volets &amp; portes de garage</button>
-          <button type="button" class="chip-btn" data-filter="fenetres" aria-pressed="false">Fenêtres &amp; façades</button>
-          <button type="button" class="chip-btn" data-filter="3d" aria-pressed="false">Simulations 3D</button>
-        </div>
-        <p class="filter-count" id="filter-count" aria-live="polite"></p>
-
-        <div class="masonry" id="masonry">
-{{gallery_items}}
-        </div>
-
-        <p class="note-small">
-          Vous avez un projet similaire&nbsp;? <a href="{{base}}contact/">Parlons-en</a>.
-        </p>
-      </div>
-    </section>
+{{> reviews}}
 
 {{> cta}}

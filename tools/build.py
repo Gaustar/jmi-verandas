@@ -215,14 +215,17 @@ def gallery_html(images, base):
             errors.append(f"gallery.json : image inconnue « {it['name']} »")
             continue
         big = f"{base}assets/img/{it['name']}-{info['widths'][-1]}.webp"
-        cap = html.escape(it["caption"], quote=True)
+        # légende visible uniquement quand elle vient du site d'origine (lieu, « implantation 3D sur photo »)
+        caption = it.get("caption", "")
+        cap = html.escape(caption, quote=True)
         tag = img_tag(it["name"], info, base, html.escape(it["alt"], quote=True),
                       "(min-width: 1100px) 390px, (min-width: 700px) 46vw, 92vw")
-        low = ' data-lowres="1"' if info["w"] < 900 else ""
+        low = ' tile--low" data-lowres="1' if info["w"] < 900 else ""
+        fig = f'<figcaption>{html.escape(caption)}</figcaption>' if caption else ""
         out.append(
-            f'<figure class="tile reveal" data-cats="{" ".join(it["cats"])}"{low}>'
-            f'<a href="{big}" data-lightbox="galerie" data-caption="{cap}">{tag}</a>'
-            f'<figcaption>{html.escape(it["caption"])}</figcaption></figure>')
+            f'<figure class="tile reveal{low}">'
+            f'<a href="{big}" data-lightbox="galerie" data-caption="{cap}" aria-label="Agrandir la photo : {html.escape(it["alt"], quote=True)}">{tag}</a>'
+            f'{fig}</figure>')
     return "\n".join(out)
 
 
@@ -342,7 +345,9 @@ def main():
             "gallery_items": gallery_html(images, base),
             "fb": fb["page"],
             "fb_quote": fb.get("quote", {}),
-            "tape_ticks": "".join(f"<span>{i}</span>" for i in range(30)) + "<span>30+</span>",
+            # avis Facebook : absents du site d'origine, donc masqués tant que showReviews est faux
+            # (aperçu possible avec ?avis=1 dans l'adresse, pour les montrer à Jean-Michel)
+            "reviews_hidden": "" if SITE.get("showReviews") else " hidden",
             "coords": f'{dms(SITE["geo"]["lat"], "N", "S")} {dms(SITE["geo"]["lon"], "E", "W")}',
             "head_extra": "".join(
                 f'  <link rel="preload" href="{base}assets/fonts/{f.strip()}.woff2" as="font" type="font/woff2" crossorigin>\n'
@@ -379,7 +384,7 @@ def main():
         (TMP / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {url}{base}sitemap.xml\n")
     manifest = {
         "name": SITE["name"], "short_name": "JMI Vérandas", "lang": "fr",
-        "start_url": base, "display": "browser", "theme_color": "#008bcc", "background_color": "#f6f2eb",
+        "start_url": base, "display": "browser", "theme_color": "#008bcc", "background_color": "#ffffff",
         "icons": [{"src": f"{base}icon-192.png", "sizes": "192x192", "type": "image/png"},
                   {"src": f"{base}icon-512.png", "sizes": "512x512", "type": "image/png"}],
     }

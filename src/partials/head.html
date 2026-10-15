@@ -16,7 +16,7 @@
   <meta property="og:image" content="{{og_image}}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Pergola bioclimatique installée par JMI Vérandas">
+  <meta property="og:image:alt" content="Pergola installée par JMI Vérandas">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="{{base}}favicon.ico" sizes="32x32">
@@ -24,14 +24,13 @@
   <link rel="apple-touch-icon" href="{{base}}apple-touch-icon.png">
   <link rel="manifest" href="{{base}}site.webmanifest">
 
-  <link rel="preload" href="{{base}}assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{base}}assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{base}}assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 {{head_extra}}  <link rel="stylesheet" href="{{base}}assets/css/styles.css?v={{v}}">
 
   <script>
-    /* Thème choisi : appliqué avant l'affichage pour éviter tout flash */
+    /* Le thème suit l'appareil ; ?theme=dark ou ?theme=light dans l'adresse sert aux essais. Rien n'est mémorisé. */
     try {
-      var t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('jmi-theme');
+      var t = new URLSearchParams(location.search).get('theme');
       if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
     } catch (e) {}
   </script>

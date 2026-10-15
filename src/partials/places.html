@@ -1,44 +1,42 @@
-    <section class="section" id="carte" aria-labelledby="carte-title">
-      <div class="wrap places-grid" data-places>
-        <div>
-          <p class="eyebrow reveal">Réalisations</p>
-          <h2 class="h2 reveal" id="carte-title">De Corbion à Arlon, <span class="it">chez vous.</span></h2>
-          <p class="body-lg reveal">
-            Au départ de Corbion (Bouillon), JMI Vérandas se déplace dans les provinces de Luxembourg et de Namur.
-            Choisissez une commune pour voir une réalisation.
+    <section class="section zone" id="zone" aria-labelledby="places-title">
+      <div class="wrap zone-grid" data-places>
+        <div class="zone-text">
+          <p class="eyebrow reveal">Au départ de Corbion (Bouillon)</p>
+          <h2 class="h2 reveal" id="places-title">Dans les provinces de Luxembourg et de Namur</h2>
+          <p class="lead reveal">
+            JMI Verandas se déplace dans les provinces de Luxembourg et de Namur pour la vente, l’installation,
+            l’entretien et la réparation de vos vérandas, extensions, car-ports, stores et protections solaires
+            intérieurs &amp; extérieurs, volets roulants, fenêtres, portes et pergolas.
           </p>
-          <div class="place-list reveal" role="group" aria-label="Choisir une réalisation par commune">
-            <button type="button" class="place-btn is-on" data-place="arlon" aria-pressed="true">Arlon <span>Véranda à toiture plate</span></button>
-            <button type="button" class="place-btn" data-place="marche" aria-pressed="false">Marche-en-Famenne <span>Toiture de véranda</span></button>
-            <button type="button" class="place-btn" data-place="bertrix" aria-pressed="false">Bertrix <span>Villa et véranda</span></button>
-            <button type="button" class="place-btn" data-place="beauraing" aria-pressed="false">Beauraing <span>Véranda</span></button>
+          <div class="place-list reveal" role="group" aria-label="Voir une réalisation par commune">
+            <button type="button" class="place-btn is-on" data-place="arlon" aria-pressed="true">Arlon</button>
+            <button type="button" class="place-btn" data-place="marche" aria-pressed="false">Marche</button>
+            <button type="button" class="place-btn" data-place="bertrix" aria-pressed="false">Bertrix</button>
+            <button type="button" class="place-btn" data-place="beauraing" aria-pressed="false">Beauraing</button>
           </div>
-          <a class="link-arrow reveal" href="{{base}}realisations/">Toutes les réalisations <span aria-hidden="true">→</span></a>
-        </div>
-
-        <div class="places-stage">
-          <figure class="zone-map reveal">
-{{> zone-map}}
-            <figcaption class="zone-credit">Contours des provinces : Statbel (ODbL).</figcaption>
-          </figure>
           <div class="place-shots reveal">
             <figure class="place-shot is-on" data-place="arlon">
-              {{img name="real-arlon" alt="Véranda à toiture plate à Arlon" sizes="(min-width: 960px) 560px, 92vw"}}
-              <figcaption><b>Arlon</b> · véranda à toiture plate</figcaption>
+              {{img name="real-arlon" alt="Véranda à toiture plate à Arlon" sizes="(min-width: 960px) 440px, 92vw"}}
+              <figcaption>Véranda toiture plate · Arlon</figcaption>
             </figure>
             <figure class="place-shot" data-place="marche">
-              {{img name="real-marche" alt="Toiture vitrée d'une véranda à Marche, vue de dessus" sizes="(min-width: 960px) 560px, 92vw"}}
-              <figcaption><b>Marche</b> · toiture de véranda</figcaption>
+              {{img name="real-marche" alt="Toiture vitrée d'une véranda à Marche, vue de dessus" sizes="(min-width: 960px) 440px, 92vw"}}
+              <figcaption>Toiture de véranda · Marche</figcaption>
             </figure>
             <figure class="place-shot" data-place="bertrix">
-              {{img name="real-bertrix" alt="Villa et véranda à Bertrix" sizes="(min-width: 960px) 560px, 92vw"}}
-              <figcaption><b>Bertrix</b> · villa et véranda</figcaption>
+              {{img name="real-bertrix" alt="Villa et véranda à Bertrix" sizes="(min-width: 960px) 440px, 92vw"}}
+              <figcaption>Villa véranda · Bertrix</figcaption>
             </figure>
             <figure class="place-shot" data-place="beauraing">
-              {{img name="real-beauraing" alt="Véranda à toiture vitrée en pointe, adossée à une maison en pierre à Beauraing" sizes="(min-width: 960px) 560px, 92vw"}}
-              <figcaption><b>Beauraing</b> · véranda</figcaption>
+              {{img name="real-beauraing" alt="Véranda à toiture vitrée adossée à une maison en pierre à Beauraing" sizes="(min-width: 960px) 440px, 92vw"}}
+              <figcaption>Véranda · Beauraing</figcaption>
             </figure>
           </div>
         </div>
+
+        <figure class="zone-map reveal">
+{{> zone-map}}
+          <figcaption class="zone-credit">Contours des provinces : Statbel (ODbL).</figcaption>
+        </figure>
       </div>
     </section>

@@ -2,19 +2,14 @@
 title: Contact et devis gratuit · JMI Vérandas à Corbion (Bouillon)
 description: Demandez un devis gratuit et sans engagement à JMI Vérandas : vérandas, pergolas, stores, volets, portes et fenêtres dans les provinces de Luxembourg et de Namur. 0471 55 39 94.
 nav: contact
-scripts: devis
+scripts: devis, places
 -->
 
-    <section class="page-hero page-hero--compact">
+    <section class="page-hero page-hero--plain" aria-labelledby="page-title">
       <div class="wrap">
-        <p class="eyebrow reveal">Contact</p>
-        <h1 class="page-title reveal">Parlons de votre projet.</h1>
-        <div class="page-hero-grid">
-          <p class="lead reveal">
-            Devis gratuit et sans engagement. Pour toute question sur nos services, contactez M. {{site.owner}}
-            par téléphone ou en quelques clics ci-dessous.
-          </p>
-        </div>
+        <p class="eyebrow">Contact</p>
+        <h1 class="page-title" id="page-title">Contactez JMI Verandas à Bouillon en province de Luxembourg</h1>
+        <p class="lead">Pour toute question sur nos services ou pour un devis gratuit et détaillé, veuillez contacter M. {{site.owner}}.</p>
       </div>
     </section>
 
@@ -23,7 +18,7 @@ scripts: devis
 
         <!-- ===== Assistant de devis ===== -->
         <div class="wizard-card reveal">
-          <h2 class="wizard-title">Demande de devis</h2>
+          <h2 class="wizard-title">Formulaire de contact</h2>
 
           <form class="wizard" id="devis" novalidate data-endpoint="{{site.formEndpoint}}" data-email="{{site.email}}" data-phone="{{site.phone}}">
             <ol class="wizard-steps" aria-label="Progression">
@@ -106,16 +101,21 @@ scripts: devis
 
         <!-- ===== Coordonnées ===== -->
         <aside class="contact-aside">
-          <a class="contact-phone reveal" href="tel:{{site.phoneIntl}}">
-            <span class="label">Téléphone</span>
-            <span class="big">{{site.phone}}</span>
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
+          <div class="contact-phones reveal">
+            <a class="contact-phone" href="tel:{{site.phoneIntl}}">
+              <span class="label">GSM</span>
+              <span class="big">{{site.phone}}</span>
+            </a>
+            <a class="contact-phone contact-phone--alt" href="tel:{{site.phoneFixedIntl}}">
+              <span class="label">Fixe</span>
+              <span class="big">{{site.phoneFixed}}</span>
+            </a>
+          </div>
 
           <div class="info-card reveal">
             <div class="info-row">
-              <span class="label">Interlocuteur</span>
-              <p>M. {{site.owner}}<br><span class="muted">Questions et devis</span></p>
+              <span class="label">Contact</span>
+              <p>M. {{site.owner}}</p>
             </div>
             <div class="info-row">
               <span class="label">E-mail</span>
@@ -124,41 +124,26 @@ scripts: devis
             <div class="info-row">
               <span class="label">Adresse</span>
               <p>{{site.address.street}}<br>{{site.address.zip}} {{site.address.city}}<br>
-                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rue+du+Chairi+29%2C+6838+Corbion%2C+Belgique" target="_blank" rel="noopener">Itinéraire (Google Maps)<span class="sr-only"> – nouvelle fenêtre</span></a></p>
+                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rue+du+Chairi+29%2C+6838+Corbion%2C+Belgique" target="_blank" rel="noopener">Itinéraire<span class="sr-only"> (Google Maps, nouvelle fenêtre)</span></a></p>
+            </div>
+            <div class="info-row">
+              <span class="label">TVA</span>
+              <p>{{site.vat}}</p>
             </div>
             <div class="info-row">
               <span class="label">Facebook</span>
-              <p><a href="{{site.facebook}}" target="_blank" rel="noopener">JMI Vérandas<span class="sr-only"> – nouvelle fenêtre</span></a></p>
+              <p><a href="{{site.facebook}}" target="_blank" rel="noopener">JMI Pierrot Jean-Michel<span class="sr-only"> (nouvelle fenêtre)</span></a></p>
             </div>
           </div>
 
-          <div class="info-card reveal" data-hours="{{hours_json}}">
-            <span class="label">Horaires</span>
-            <p class="status" data-status><span class="status-dot" aria-hidden="true"></span><span data-status-text>{{site.hoursNote}}</span></p>
+          <div class="info-card reveal">
+            <span class="label">{{site.hoursNote}}</span>
             <table class="hours"><tbody>
 {{hours_table}}
             </tbody></table>
-            <p class="muted small">{{site.hoursNote}}.</p>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- ===== Zone ===== -->
-    <section class="section" id="zone">
-      <div class="wrap zone-grid">
-        <div>
-          <p class="eyebrow reveal">Où intervenons-nous&nbsp;?</p>
-          <h2 class="h2 reveal">Provinces de Luxembourg et de Namur.</h2>
-          <p class="body-lg reveal">
-            Au départ de Corbion (Bouillon), JMI Vérandas se déplace pour la vente, l'installation, l'entretien et la
-            réparation de vos vérandas, extensions, carports, stores, protections solaires, volets roulants, fenêtres,
-            portes et pergolas.
-          </p>
-        </div>
-        <figure class="zone-map reveal">
-{{> zone-map}}
-          <figcaption class="zone-credit">Contours des provinces : Statbel (ODbL).</figcaption>
-        </figure>
-      </div>
-    </section>
+{{> places}}
