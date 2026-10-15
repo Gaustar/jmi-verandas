@@ -165,7 +165,7 @@
         body: JSON.stringify({ subject: subject, projets: d.projets.join(', '), commune: d.commune, message: d.message, nom: d.nom, tel: d.tel, email: d.email, texte: msg })
       }).then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
-        finish('Merci, votre message est envoyé.', 'Nous revenons vers vous rapidement.', []);
+        finish('Merci, votre message est envoyé.', '', []);
       }).catch(function () {
         submit.disabled = false;
         submit.textContent = 'Envoyer ma demande';

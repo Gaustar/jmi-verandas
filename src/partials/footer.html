@@ -4,60 +4,53 @@
         <div class="footer-brand">
           <img src="{{base}}assets/img/logo.png" alt="{{site.name}}" width="148" height="69" loading="lazy">
           <p>{{site.tagline}}.</p>
-          <p class="muted">Corbion-sur-Semois, près de Bouillon.<br>Provinces de Luxembourg et de Namur.</p>
+          <p class="muted">Au départ de Corbion (Bouillon), dans les provinces de Luxembourg et de Namur.</p>
         </div>
-
-        <nav aria-label="Pied de page">
-          <h2 class="footer-title">Le site</h2>
-          <ul>
-            <li><a href="{{base}}">Accueil</a></li>
-            <li><a href="{{base}}verandas-chassis/">Véranda &amp; châssis</a></li>
-            <li><a href="{{base}}realisations/">Réalisations</a></li>
-            <li><a href="{{base}}contact/">Contact et devis</a></li>
-            <li><a href="{{base}}confidentialite/">Confidentialité</a></li>
-          </ul>
-        </nav>
 
         <div>
           <h2 class="footer-title">Contact</h2>
           <address>
-            {{site.owner}}<br>
+            M. {{site.owner}}<br>
             {{site.address.street}}<br>
-            {{site.address.zip}} {{site.address.city}}<br>
-            <a href="tel:{{site.phoneIntl}}">{{site.phone}}</a><br>
-            <a href="mailto:{{site.email}}">{{site.email}}</a>
+            {{site.address.zip}} {{site.address.city}}
           </address>
-          <p class="footer-social">
-            <a href="{{site.facebook}}" rel="noopener" target="_blank" aria-label="JMI Vérandas sur Facebook (nouvelle fenêtre)">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8.2h2.8l.5-3.3h-3.3V8.4c0-.9.4-1.7 1.8-1.7h1.6V3.8c-.3 0-1.3-.2-2.4-.2-2.5 0-4.1 1.5-4.1 4.2v2.7H7.6v3.3h2.8V22h3.1Z"/></svg>
-              Facebook
-            </a><br>
-            <span class="muted small">Recommandé par {{fb.recommend_percent}} % ({{fb.reviews}} avis)</span>
-          </p>
+          <ul class="footer-lines">
+            <li><a href="tel:{{site.phoneIntl}}">{{site.phone}}</a></li>
+            <li><a href="tel:{{site.phoneFixedIntl}}">{{site.phoneFixed}}</a></li>
+            <li><a href="mailto:{{site.email}}">{{site.email}}</a></li>
+            <li><a href="{{site.facebook}}" rel="noopener" target="_blank">Facebook<span class="sr-only"> (nouvelle fenêtre)</span></a></li>
+          </ul>
         </div>
 
         <div>
-          <h2 class="footer-title">Horaires</h2>
+          <h2 class="footer-title">{{site.hoursNote}}</h2>
           <table class="hours hours--compact"><tbody>
 {{hours_table}}
           </tbody></table>
-          <p class="muted small">{{site.hoursNote}}.</p>
         </div>
+
+        <nav aria-label="Pied de page">
+          <h2 class="footer-title">Le site</h2>
+          <ul class="footer-lines">
+            <li><a href="{{base}}">Accueil</a></li>
+            <li><a href="{{base}}verandas-chassis/">Véranda &amp; châssis</a></li>
+            <li><a href="{{base}}realisations/">Réalisations</a></li>
+            <li><a href="{{base}}contact/">Contact</a></li>
+            <li><a href="{{base}}confidentialite/">Confidentialité</a></li>
+          </ul>
+        </nav>
       </div>
 
       <div class="footer-bottom">
-        <p>© {{year}} {{site.name}} · TVA {{site.vat}}</p>
-        <p>
-          <button type="button" class="motion-toggle" data-motion-toggle aria-pressed="true">Animations : <span>activées</span></button>
-          <a href="{{base}}confidentialite/">Confidentialité</a> · <a href="#top" class="to-top">Haut de page ↑</a>
-        </p>
+        <p>© {{year}} {{site.name}} · {{site.owner}} · TVA {{site.vat}}</p>
+        <p><a href="#top">Haut de page ↑</a></p>
       </div>
     </div>
   </footer>
 
   <nav class="dock" aria-label="Actions rapides">
     <a href="tel:{{site.phoneIntl}}">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
       Appeler
     </a>
     <a class="dock-primary" href="{{base}}contact/">Devis gratuit</a>

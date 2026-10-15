@@ -1,14 +1,21 @@
     <section class="cta" aria-labelledby="cta-title">
       <div class="wrap">
         <div class="cta-box reveal">
-          <div>
-            <p class="eyebrow eyebrow--onblue">Devis gratuit et sans engagement</p>
-            <h2 class="cta-title" id="cta-title">Un projet&nbsp;? Parlons-en.</h2>
-            <p class="cta-text">Pour toute question sur nos services ou pour un devis gratuit et détaillé, veuillez contacter Mr {{site.owner}}.</p>
+          <div class="cta-text">
+            <p class="eyebrow eyebrow--light">Devis gratuit et détaillé</p>
+            <h2 class="cta-title" id="cta-title">Contactez M. {{site.owner}}</h2>
+            <p>Pour toute question au sujet des services de JMI Verandas et pour recevoir un devis gratuit et détaillé.</p>
           </div>
           <div class="cta-actions">
+            <a class="cta-phone" href="tel:{{site.phoneIntl}}">
+              <span class="cta-phone-label">GSM</span>
+              <span class="cta-phone-number">{{site.phone}}</span>
+            </a>
+            <a class="cta-phone cta-phone--alt" href="tel:{{site.phoneFixedIntl}}">
+              <span class="cta-phone-label">Fixe</span>
+              <span class="cta-phone-number">{{site.phoneFixed}}</span>
+            </a>
             <a class="btn btn--light btn--lg" href="{{base}}contact/">Demander un devis</a>
-            <a class="cta-phone" href="tel:{{site.phoneIntl}}">{{site.phone}}</a>
           </div>
         </div>
       </div>

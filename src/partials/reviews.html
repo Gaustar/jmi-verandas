@@ -1,0 +1,17 @@
+    <!-- Avis Facebook : absents du site d'origine. Masqués tant que site.json → showReviews est faux.
+         Aperçu pour Jean-Michel : ajouter ?avis=1 à l'adresse de la page. -->
+    <section class="reviews" aria-labelledby="reviews-title" data-reviews{{reviews_hidden}}>
+      <div class="wrap">
+        <div class="reviews-box">
+          <div class="reviews-score">
+            <span class="reviews-percent">{{fb.recommend_percent}}&nbsp;%</span>
+            <span class="reviews-label">recommandé sur Facebook<br>({{fb.reviews}} avis)</span>
+          </div>
+          <blockquote class="reviews-quote">
+            <p id="reviews-title">« {{fb_quote.text}} »</p>
+            <footer>{{fb_quote.source}}</footer>
+          </blockquote>
+          <a class="btn btn--ghost" href="{{fb.reviews_url}}" target="_blank" rel="noopener">Lire les avis<span class="sr-only"> (nouvelle fenêtre)</span></a>
+        </div>
+      </div>
+    </section>

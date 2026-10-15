@@ -41,36 +41,35 @@ Photos : ~26 sur le site, dont 14 en bonne résolution (1867×1400) et 8 en 640�
 | Confidentialité | `/confidentialite/` | Remplace la politique de cookies Wix |
 | 404 | `/404.html` | Page d'erreur utile |
 
-## 4. Système visuel (v4 : le design précédent, amélioré)
+## 4. Système visuel (v6 « son site, en mieux », 15 octobre 2026)
 
-Historique : v2 (sobre, serif et bleu) → v3 « Dehors / Dedans » (sombre, ambre, condensé ; conservé dans le tag Git
-`design-v3-dehors-dedans`) → **v4**, qui revient à l'esprit de la v2 parce qu'il plaît davantage, en gardant ce que la
-v3 a apporté sur le fond.
+Historique : v2 (serif, bleu) → v3 « Dehors / Dedans » (tag `design-v3-dehors-dedans`) → v4/v5 (serif éditoriale,
+papier beige, « Une journée sous la pergola » ; tag `design-v5-journee-pergola`) → **v6**, issue de
+[l'audit du 15/10/2026](AUDIT-2026-10.md).
 
-- **Identité conservée** : Fraunces (titres, italique bleu), Manrope (texte), bleu du logo, papier pierre, cartes et
-  boutons arrondis, thème clair/sombre via `light-dark()`.
-- **Améliorations** :
-  - hero plus large avec trois **cartes de preuve** posées sur la photo (30+ ans, 100 % Facebook, devis gratuit) ;
-  - cinq produits sur huit avec leur photo (au lieu de deux) ;
-  - **mètre ruban** bleu qui défile : « Trente ans, ça se mesure » ;
-  - la liste **« Collaborer avec JMI, c'est bénéficier de… »** (ses mots) avec croquis et simulation 3D ;
-  - bloc **« Les plus grandes marques. Les meilleurs matériaux. Aux meilleurs prix. »** (ses mots) ;
-  - **carte des réalisations** cliquable (Arlon, Marche, Bertrix, Beauraing) avec photo « punaisée » ;
-  - section **Facebook** (100 %, 5 avis, un avis réel, lien vers la page ; pas de publications) ;
-  - pied de page avec la note Facebook ; bandeau d'appel avec sa phrase d'invitation.
-- **Rien d'inventé** : slogan, listes et phrases = mots du site Wix ; chiffres = site Wix et page Facebook.
-- **Mouvement** (voir `docs/VEILLE.md` pour la veille et la comparaison avec les concurrents) :
-  - **« Une journée sous la pergola »** : section épinglée, le défilement fait passer matin → midi → pluie → soir
-    (lames, soleil, ciel, fenêtre et liseré LED) ; boutons pour sauter à un moment, « Prendre les commandes » pour manipuler ;
-  - **hero** : titre mot à mot, photo derrière une baie vitrée qui s'ouvre à son arrivée ;
-  - titres des sections : mots qui montent un à un (une seule fois, < 1,5 s) ;
-  - citation et « Les plus grandes marques… » : balayage de gauche à droite ; chiffres qui comptent ; traits qui se dessinent ;
-  - photos qui se posent ; carte des réalisations tracée puis communes une à une, photo punaisée ; ruban 30 ans lié au scroll ;
-  - cartes : reflet qui suit le curseur ; en-tête qui se range en descendant ;
-  - **garde-fous** : `prefers-reduced-motion` + interrupteur « Animations » dans le pied de page (classe `no-motion`), sans
-    JavaScript tout est visible, jamais de mouvement sur du texte déjà affiché.
-- **Piège connu** : un élément masqué par `clip-path` n'est pas détecté par IntersectionObserver ; `main.js` observe donc
-  son conteneur.
+**Règle de contenu (demandée par Gauthier)** : le site ne reprend **que** le texte du site Wix actuel. Rien d'inventé,
+rien de déduit des photos. Seuls changent la mise en page, le look et les animations. Exceptions assumées :
+libellés d'interface (boutons, formulaire), page Confidentialité (elle décrit le nouveau site), avis Facebook
+(masqués, voir ci-dessous).
+
+- **Il se reconnaît** : son logo, le bleu `#008BCC`, sa photo de pergola en plein écran, son H1 (« JMI Verandas, votre
+  spécialiste en vérandas et pergolas dans les provinces de Luxembourg et de Namur »), ses phrases.
+- **Une seule police** : Archivo variable (graisse et largeur), hébergée localement. Titres en gras semi-condensé
+  (écho moderne des titres condensés de son site Wix), texte en largeur normale.
+- **Couleurs** : fond blanc, gris clair pour l'alternance, anthracite (`#1a1f24`, ses structures alu) pour les bandeaux,
+  bleu `#0072a8` (contraste AA) pour les actions, bleu du logo pour les accents. Thème sombre automatique
+  (`light-dark()`), sans bouton ; `?theme=dark` pour les essais.
+- **Accueil** : photo + titre + « Demander un devis gratuit » + téléphone dès le premier écran (téléphone compris) →
+  bandeau de preuves (30+ ans, devis gratuit, croquis 3D, sur mesure) → « Améliorez le confort de votre habitation »
+  + sa devise → produits en photos → **« Pourquoi choisir JMI Verandas ? »** avec « le patron vous accompagne pas à
+  pas » et sa liste « c'est bénéficier de » en étapes numérotées (dans son ordre) → bandeau « qualité-prix » →
+  réalisations → carte des communes → « Contactez M. Pierrot Jean-Michel » (GSM + fixe).
+- **Mouvement, peu et utile** : rien n'est caché au chargement (seuls les blocs sous l'écran apparaissent en fondu),
+  photo d'arrivée qui se pose, compteur « 30+ », ligne « pas à pas » qui se remplit au défilement, contour des
+  provinces qui se dessine, survols des photos et boutons. `prefers-reduced-motion` coupe tout.
+- **Avis Facebook** : absents de son site, donc masqués (`site.json` → `showReviews: false`). Pour les lui montrer :
+  ajouter `?avis=1` à l'adresse (accueil ou réalisations). S'il accepte : `showReviews: true`.
+- **Fixe 061 46 68 66** : présent sur son site (lien de la page `/contact-1`), confirmé valide le 15/10/2026.
 
 ## 5. Contact et devis
 
@@ -104,6 +103,7 @@ README.md               mode d'emploi    docs/MIGRATION.md   passage de Wix à l
 ## 8. À valider avec Jean-Michel
 
 - **Horaires** : lesquels sont les bons ? (le site affiche ceux de la page Contact).
+- **Avis Facebook** : les afficher ? (aperçu avec `?avis=1`).
 - **« Plus de 30 ans »** (la page cachée dit 29 ans).
 - **Textes de présentation des produits** : écrits à partir des photos et des intitulés du site Wix ; à relire.
 - **« Permis de construire »** : le site dit seulement que c'est un avantage ; la v2 écrit « nous vous aidons dans vos démarches de permis » : à confirmer.
