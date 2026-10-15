@@ -2,23 +2,20 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="{{base}}assets/img/logo.png" alt="{{site.name}}" width="148" height="69" loading="lazy">
+          <div class="footer-logo">
+{{> logo}}
+          </div>
           <p>{{site.tagline}}.</p>
           <p class="muted">Au départ de Corbion (Bouillon), dans les provinces de Luxembourg et de Namur.</p>
         </div>
 
         <div>
           <h2 class="footer-title">Contact</h2>
-          <address>
-            M. {{site.owner}}<br>
-            {{site.address.street}}<br>
-            {{site.address.zip}} {{site.address.city}}
-          </address>
-          <ul class="footer-lines">
-            <li><a href="tel:{{site.phoneIntl}}">{{site.phone}}</a></li>
-            <li><a href="tel:{{site.phoneFixedIntl}}">{{site.phoneFixed}}</a></li>
-            <li><a href="mailto:{{site.email}}">{{site.email}}</a></li>
-            <li><a href="{{site.facebook}}" rel="noopener" target="_blank">Facebook<span class="sr-only"> (nouvelle fenêtre)</span></a></li>
+          <ul class="footer-lines footer-contact">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><address>M.&nbsp;{{site.owner}}<br>{{site.address.street}}<br>{{site.address.zip}} {{site.address.city}}</address></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-tel"/></svg><span><a href="tel:{{site.phoneIntl}}">{{site.phone}}</a><br><a href="tel:{{site.phoneFixedIntl}}">{{site.phoneFixed}}</a></span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:{{site.email}}">{{site.email}}</a></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg><a href="{{site.facebook}}" rel="noopener" target="_blank">Facebook<span class="sr-only"> (nouvelle fenêtre)</span></a></li>
           </ul>
         </div>
 
