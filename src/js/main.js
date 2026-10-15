@@ -27,6 +27,17 @@
     if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); burger.focus(); }
   });
 
+  /* ---------- Barre d'actions mobile : cachée tant que les boutons de l'accueil sont à l'écran ---------- */
+  var dock = document.querySelector('.dock');
+  var heroCta = document.querySelector('.hero-cta');
+  if (dock && heroCta && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      dock.classList.toggle('is-on', !entries[0].isIntersecting);
+    }).observe(heroCta);
+  } else if (dock) {
+    dock.classList.add('is-on');
+  }
+
   /* ---------- Compteur « 30+ » : la valeur finale est déjà dans la page ---------- */
   function countUp(el) {
     var target = parseInt(el.getAttribute('data-count'), 10);
@@ -43,28 +54,30 @@
 
   /* ---------- Apparitions au défilement (seulement sous la ligne de flottaison) ---------- */
   var targets = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-  var groups = new Map();
-  targets.forEach(function (el) {
-    var n = groups.get(el.parentElement) || 0;
-    groups.set(el.parentElement, n + 1);
-    el.style.setProperty('--d', Math.min(n, 5) * 0.08 + 's');
-  });
-
   var counters = Array.prototype.slice.call(document.querySelectorAll('.count'));
   if ('IntersectionObserver' in window && !reduce) {
-    var fold = window.innerHeight;
+    /* Aucune mesure forcée : le premier rapport de l'observateur dit ce qui est déjà à l'écran (laissé tel quel)
+       et ce qui est plus bas (masqué, hors de la vue, puis révélé à l'arrivée). */
+    var groups = new Map();
     targets.forEach(function (el) {
-      if (el.getBoundingClientRect().top < fold) el.classList.add('in');   /* déjà visible : rien ne bouge */
-      else el.classList.add('pending');
+      var n = groups.get(el.parentElement) || 0;
+      groups.set(el.parentElement, n + 1);
+      el.style.setProperty('--d', Math.min(n, 5) * 0.08 + 's');
     });
+    var first = new WeakSet();
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
+        var el = entry.target;
+        if (!first.has(el)) {
+          first.add(el);
+          if (entry.boundingClientRect.top < window.innerHeight) { el.classList.add('in'); io.unobserve(el); }
+          else el.classList.add('pending');
+          return;
+        }
+        if (entry.isIntersecting) { el.classList.add('in'); io.unobserve(el); }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
-    targets.forEach(function (el) { if (el.classList.contains('pending')) io.observe(el); });
+    targets.forEach(function (el) { io.observe(el); });
 
     var co = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {

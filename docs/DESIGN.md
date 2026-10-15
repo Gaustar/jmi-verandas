@@ -71,6 +71,34 @@ libellés d'interface (boutons, formulaire), page Confidentialité (elle décrit
   ajouter `?avis=1` à l'adresse (accueil ou réalisations). S'il accepte : `showReviews: true`.
 - **Fixe 061 46 68 66** : présent sur son site (lien de la page `/contact-1`), confirmé valide le 15/10/2026.
 
+### v6.1 (15 octobre 2026) : finitions design et performance
+
+Après analyse de toutes les pages (bureau, téléphone, thème sombre) et une veille de 8 sites du secteur (Renson,
+Solarlux, Veranco, Akena, Reynaers, Les Vérandas 4 Saisons, AT Véranda, Veranda Line ; captures dans le dossier de
+travail de la session) :
+
+- **Logo vectoriel** (`src/partials/logo.html`), redessiné d'après son logo 148 × 69 px et le monogramme « icoon » du
+  site Wix (les originaux sur Wix sont aussi petits) ; net sur tous les écrans. **À faire valider** ; un fichier
+  vectoriel officiel le remplacerait.
+- **Icônes au trait « croquis »** (`src/partials/icons.html`, sprite SVG) pour chaque famille de produits : cartes
+  produits, liste de devis, choix du formulaire, pied de page. Tracé animé à l'apparition.
+- **En-tête transparent** posé sur la photo (accueil, Véranda & châssis), qui devient blanc au défilement.
+- **Accueil sur téléphone** : la photo entière en haut, le texte dessous ; la barre « Appeler / Devis gratuit »
+  n'apparaît qu'une fois les boutons de l'accueil dépassés.
+- **Sa devise en grand** (« Allez dehors en restant dedans… ») comme respiration entre présentation et produits ;
+  aplat bleu décalé derrière la photo de présentation ; carte « Le patron » (nom + GSM) sous « Pourquoi choisir » ;
+  fond « papier millimétré » discret ; photo du bandeau qualité-prix qui glisse au défilement.
+- **Carte** : seulement les deux provinces, étiquettes détourées ; **galerie** en grille régulière (photos verticales
+  sur deux rangées, légendes d'origine en pastilles) ; **Contact** : photo à côté du titre ; pied de page en fiche
+  de contact avec icônes.
+- **Typographie française** automatique au build (espace fine insécable avant ; : ! ? et dans « »).
+- **Transitions douces entre pages** (View Transitions, navigateurs récents).
+- **Performance** : police réduite aux caractères utiles et aux plages de graisse et de largeur employées (90 → 72 Ko),
+  préchargement de la photo d'en-tête, apparitions sans mesure forcée de la mise en page, `content-visibility` sur les
+  sections hors écran. Lighthouse mobile : accueil 89 → 99 (LCP 2,9 → 2,0 s, TBT 260 → 30-80 ms).
+
+Écartés faute de matière réelle : photo du patron ou de l'équipe, avant/après de chantiers.
+
 ## 5. Contact et devis
 
 - Assistant en 3 étapes (projet → détails → coordonnées), pré-rempli depuis les pages produit (`?projet=pergola-bioclimatique`).

@@ -2,7 +2,8 @@
 title: JMI Verandas · Vérandas et pergolas · Corbion, Bouillon · Luxembourg et Namur
 description: JMI Verandas, votre spécialiste en vérandas et pergolas dans les provinces de Luxembourg et de Namur. Vérandas, pergolas classiques ou bioclimatiques, stores, volets, portes, fenêtres et châssis. Devis gratuit et sans engagement.
 nav: home
-body: page-home
+body: page-home has-hero
+lcp: pergola-bio-hero
 scripts: lightbox, places
 -->
 
@@ -38,7 +39,7 @@ scripts: lightbox, places
             <span>ans dans le métier</span>
           </li>
           <li>
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 12h6M10 16h6"/></svg>
+            <svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>
             <strong>Devis gratuit</strong>
             <span>et sans engagement</span>
           </li>
@@ -73,11 +74,16 @@ scripts: lightbox, places
         </div>
         <figure class="intro-photo reveal">
           {{img name="pergola-bio-interieur" alt="Sous une pergola : plafond en lames et éclairage, store vertical baissé" sizes="(min-width: 960px) 560px, 92vw"}}
-          <figcaption class="motto">
-            <span class="motto-small">Faites un pas de plus vers votre jardin.</span>
-            <span class="motto-big">« Allez dehors en restant dedans… »</span>
-          </figcaption>
         </figure>
+      </div>
+    </section>
+
+    <!-- ============ SA DEVISE ============ -->
+    <section class="interlude" aria-label="Notre devise">
+      <div class="wrap">
+        <svg class="ico interlude-ico reveal" aria-hidden="true"><use href="#i-pergola"/></svg>
+        <p class="interlude-small reveal">Faites un pas de plus vers votre jardin.</p>
+        <p class="interlude-big reveal"><span class="q">«</span>&nbsp;Allez dehors en restant dedans…&nbsp;<span class="q">»</span></p>
       </div>
     </section>
 
@@ -95,33 +101,41 @@ scripts: lightbox, places
         <div class="products">
           <a class="pcard pcard--xl reveal" href="{{base}}verandas-chassis/#verandas">
             {{img name="veranda-baies-coulissantes" alt="" sizes="(min-width: 1100px) 600px, (min-width: 700px) 92vw, 92vw"}}
-            <span class="pcard-title">Vérandas &amp; extensions</span>
+            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-veranda"/></svg>Vérandas &amp; extensions</span>
+            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
           <a class="pcard reveal" href="{{base}}verandas-chassis/#pergolas">
-            {{img name="pergola-bio-terrasse" alt="" sizes="(min-width: 1100px) 290px, (min-width: 700px) 46vw, 92vw"}}
-            <span class="pcard-title">Pergolas classiques ou bioclimatiques</span>
+            {{img name="pergola-bio-terrasse" alt="" sizes="(min-width: 1100px) 290px, 46vw"}}
+            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-pergola"/></svg>Pergolas classiques ou bioclimatiques</span>
+            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
           <a class="pcard reveal" href="{{base}}verandas-chassis/#stores">
-            {{img name="veranda-store-zip" alt="" sizes="(min-width: 1100px) 290px, (min-width: 700px) 46vw, 92vw"}}
-            <span class="pcard-title">Stores &amp; protections solaires</span>
+            {{img name="veranda-store-zip" alt="" sizes="(min-width: 1100px) 290px, 46vw"}}
+            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-store"/></svg>Stores &amp; protections solaires</span>
+            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
           <a class="pcard reveal" href="{{base}}verandas-chassis/#stores">
-            {{img name="volet-roulant-facade" alt="" sizes="(min-width: 1100px) 290px, (min-width: 700px) 46vw, 92vw"}}
-            <span class="pcard-title">Volets roulants</span>
+            {{img name="volet-roulant-facade" alt="" sizes="(min-width: 1100px) 290px, 46vw"}}
+            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-volet"/></svg>Volets roulants</span>
+            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
           <a class="pcard reveal" href="{{base}}verandas-chassis/#chassis">
-            {{img name="volet-garage-roulant" alt="" sizes="(min-width: 1100px) 290px, (min-width: 700px) 46vw, 92vw"}}
-            <span class="pcard-title">Portes de garage</span>
+            {{img name="volet-garage-roulant" alt="" sizes="(min-width: 1100px) 290px, 46vw"}}
+            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-garage"/></svg>Portes de garage</span>
+            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
           <a class="pcard pcard--wide reveal" href="{{base}}verandas-chassis/#chassis">
             {{img name="facade-baies-bardage" alt="" sizes="(min-width: 1100px) 600px, (min-width: 700px) 92vw, 92vw"}}
-            <span class="pcard-title">Fenêtres, portes &amp; châssis</span>
+            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-chassis"/></svg>Fenêtres, portes &amp; châssis</span>
+            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
           <a class="pcard pcard--text reveal" href="{{base}}contact/?projet=carport">
+            <svg class="ico ico--xl" aria-hidden="true"><use href="#i-carport"/></svg>
             <span class="pcard-title">Carports</span>
             <span class="pcard-more">Demander un devis <span aria-hidden="true">→</span></span>
           </a>
           <a class="pcard pcard--text reveal" href="{{base}}contact/?projet=moustiquaire">
+            <svg class="ico ico--xl" aria-hidden="true"><use href="#i-moustiquaire"/></svg>
             <span class="pcard-title">Moustiquaires</span>
             <span class="pcard-more">Demander un devis <span aria-hidden="true">→</span></span>
           </a>
@@ -142,6 +156,17 @@ scripts: lightbox, places
             Collaborer avec JMI Vérandas, c’est faire le choix de l’expérience et du savoir-faire. Fort de plus de 30 ans
             dans le métier, <mark>le patron vous accompagne pas à pas</mark> dans la création de votre véranda ou pergola.
           </p>
+          <div class="patron reveal">
+            <svg class="patron-mark" viewBox="0 0 125 72" aria-hidden="true"><use href="#jmi-mark"/></svg>
+            <div class="patron-text">
+              <span class="label">Le patron</span>
+              <strong>M.&nbsp;{{site.owner}}</strong>
+            </div>
+            <a class="btn btn--primary btn--sm patron-call" href="tel:{{site.phoneIntl}}">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+              {{site.phone}}
+            </a>
+          </div>
         </div>
 
         <div class="why-steps">

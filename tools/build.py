@@ -218,9 +218,13 @@ def gallery_html(images, base):
         # légende visible uniquement quand elle vient du site d'origine (lieu, « implantation 3D sur photo »)
         caption = it.get("caption", "")
         cap = html.escape(caption, quote=True)
+        n = len(out)   # les premières photos sont visibles d'emblée : chargées tout de suite
         tag = img_tag(it["name"], info, base, html.escape(it["alt"], quote=True),
-                      "(min-width: 1100px) 390px, (min-width: 700px) 46vw, 92vw")
+                      "(min-width: 1100px) 390px, (min-width: 700px) 46vw, 48vw",
+                      "eager" if n < 4 else "lazy", "", "high" if n == 0 else "")
         low = ' tile--low" data-lowres="1' if info["w"] < 900 else ""
+        if info["h"] > info["w"]:
+            low = " tile--tall" + low
         fig = f'<figcaption>{html.escape(caption)}</figcaption>' if caption else ""
         out.append(
             f'<figure class="tile reveal{low}">'
@@ -267,6 +271,32 @@ def render(text, ctx, images, where):
 
     # 3. variables
     return VAR.sub(lambda m: lookup(ctx, m.group(1), where), text)
+
+
+def lcp_preload(name, images, base):
+    """Précharge la grande photo d'en-tête d'une page (meta « lcp: nom »), pour un affichage plus rapide."""
+    info = images.get(name.strip()) if name else None
+    if not info:
+        return ""
+    srcset = ", ".join(f"{base}assets/img/{name.strip()}-{w}.webp {w}w" for w in info["widths"])
+    return (f'  <link rel="preload" as="image" type="image/webp" imagesrcset="{srcset}" imagesizes="100vw" '
+            f'fetchpriority="high">\n')
+
+
+TYPO_SKIP = re.compile(r"(<script\b.*?</script>|<style\b.*?</style>|<textarea\b.*?</textarea>|<[^>]+>)", re.S)
+
+
+def french_typography(page):
+    """Espace fine insécable avant ; : ! ? et à l'intérieur des guillemets, dans le texte seulement."""
+    parts = TYPO_SKIP.split(page)
+    for i in range(0, len(parts), 2):
+        t = parts[i]
+        t = re.sub(r"[ \u00a0]([;:!?»])", "\u202f\\1", t)
+        t = re.sub(r"«[ \u00a0]", "«\u202f", t)
+        t = t.replace("&nbsp;!", "\u202f!").replace("&nbsp;?", "\u202f?").replace("&nbsp;:", "\u202f:")
+        t = t.replace("&nbsp;»", "\u202f»").replace("«&nbsp;", "«\u202f")
+        parts[i] = t
+    return "".join(parts)
 
 
 def parse_page(path):
@@ -351,7 +381,7 @@ def main():
             "coords": f'{dms(SITE["geo"]["lat"], "N", "S")} {dms(SITE["geo"]["lon"], "E", "W")}',
             "head_extra": "".join(
                 f'  <link rel="preload" href="{base}assets/fonts/{f.strip()}.woff2" as="font" type="font/woff2" crossorigin>\n'
-                for f in meta.get("preload", "").split(",") if f.strip()),
+                for f in meta.get("preload", "").split(",") if f.strip()) + lcp_preload(meta.get("lcp", ""), images, base),
             "content": "@@CONTENT@@",
             "scripts": "".join(
                 f'<script src="{base}assets/js/{s.strip()}.js?v={version}" defer></script>\n'
@@ -361,6 +391,7 @@ def main():
         content = render(body, ctx, images, where)
         out_html = render(layout, ctx, images, "layout").replace("@@CONTENT@@", content)
 
+        out_html = french_typography(out_html)
         nav = meta["nav"]
         out_html = re.sub(r'\s*data-nav="(\w+)"',
                           lambda m: ' aria-current="page"' if m.group(1) == nav else "", out_html)

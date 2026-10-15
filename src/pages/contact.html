@@ -6,10 +6,15 @@ scripts: devis, places
 -->
 
     <section class="page-hero page-hero--plain" aria-labelledby="page-title">
-      <div class="wrap">
-        <p class="eyebrow">Contact</p>
-        <h1 class="page-title" id="page-title">Contactez JMI Verandas à Bouillon en province de Luxembourg</h1>
-        <p class="lead">Pour toute question sur nos services ou pour un devis gratuit et détaillé, veuillez contacter M. {{site.owner}}.</p>
+      <div class="wrap page-hero-split">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h1 class="page-title" id="page-title">Contactez JMI Verandas à Bouillon en province de Luxembourg</h1>
+          <p class="lead">Pour toute question sur nos services ou pour un devis gratuit et détaillé, veuillez contacter M.&nbsp;{{site.owner}}.</p>
+        </div>
+        <figure class="page-hero-photo">
+          {{img name="pergola-bio-terrasse" alt="" sizes="(min-width: 900px) 480px, 1px" loading="eager"}}
+        </figure>
       </div>
     </section>
 
@@ -30,21 +35,21 @@ scripts: devis, places
             <fieldset class="wstep" data-step="1">
               <legend class="wlegend">Quel est votre projet&nbsp;? <span class="muted">Plusieurs choix possibles.</span></legend>
               <div class="pills">
-                <label class="pill"><input type="checkbox" name="projet" value="veranda"><span>Véranda</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="extension"><span>Extension</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="pergola-classique"><span>Pergola classique</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="pergola-bioclimatique"><span>Pergola bioclimatique</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="carport"><span>Carport</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="store-exterieur"><span>Store extérieur</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="store-interieur"><span>Store intérieur</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="protection-solaire"><span>Protection solaire</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="volet-roulant"><span>Volet roulant</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="fenetre"><span>Fenêtre</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="porte"><span>Porte</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="porte-garage"><span>Porte de garage</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="moustiquaire"><span>Moustiquaires</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="entretien"><span>Entretien / réparation</span></label>
-                <label class="pill"><input type="checkbox" name="projet" value="documentation"><span>Documentation</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="veranda"><span><svg class="ico" aria-hidden="true"><use href="#i-veranda"/></svg>Véranda</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="extension"><span><svg class="ico" aria-hidden="true"><use href="#i-extension"/></svg>Extension</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="pergola-classique"><span><svg class="ico" aria-hidden="true"><use href="#i-pergola"/></svg>Pergola classique</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="pergola-bioclimatique"><span><svg class="ico" aria-hidden="true"><use href="#i-pergola"/></svg>Pergola bioclimatique</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="carport"><span><svg class="ico" aria-hidden="true"><use href="#i-carport"/></svg>Carport</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="store-exterieur"><span><svg class="ico" aria-hidden="true"><use href="#i-store"/></svg>Store extérieur</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="store-interieur"><span><svg class="ico" aria-hidden="true"><use href="#i-store-int"/></svg>Store intérieur</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="protection-solaire"><span><svg class="ico" aria-hidden="true"><use href="#i-soleil"/></svg>Protection solaire</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="volet-roulant"><span><svg class="ico" aria-hidden="true"><use href="#i-volet"/></svg>Volet roulant</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="fenetre"><span><svg class="ico" aria-hidden="true"><use href="#i-chassis"/></svg>Fenêtre</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="porte"><span><svg class="ico" aria-hidden="true"><use href="#i-porte"/></svg>Porte</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="porte-garage"><span><svg class="ico" aria-hidden="true"><use href="#i-garage"/></svg>Porte de garage</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="moustiquaire"><span><svg class="ico" aria-hidden="true"><use href="#i-moustiquaire"/></svg>Moustiquaires</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="entretien"><span><svg class="ico" aria-hidden="true"><use href="#i-entretien"/></svg>Entretien / réparation</span></label>
+                <label class="pill"><input type="checkbox" name="projet" value="documentation"><span><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>Documentation</span></label>
               </div>
               <p class="field-error" data-error="projet" role="alert" hidden>Choisissez au moins un type de projet.</p>
             </fieldset>
