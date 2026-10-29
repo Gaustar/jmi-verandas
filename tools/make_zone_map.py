@@ -115,7 +115,7 @@ def bbox_in_frame(geom):
 
 out = [f'<svg class="zone-svg" viewBox="0 0 {W} {H}" role="img" '
        f'aria-labelledby="zone-title zone-desc" xmlns="http://www.w3.org/2000/svg">',
-       '<title id="zone-title">Zone d’intervention de JMI Vérandas</title>',
+       '<title id="zone-title">Zone d’intervention de JMI Verandas</title>',
        '<desc id="zone-desc">Carte des provinces de Luxembourg et de Namur, avec Corbion, '
        'Arlon, Marche-en-Famenne, Bertrix et Beauraing.</desc>']
 

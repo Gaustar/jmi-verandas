@@ -1,4 +1,4 @@
-/* JMI Vérandas — comportements communs. Le site reste entièrement lisible sans JavaScript. */
+/* JMI Verandas — comportements communs. Le site reste entièrement lisible sans JavaScript. */
 (function () {
   'use strict';
   var root = document.documentElement;

@@ -1,6 +1,6 @@
-# JMI Vérandas · site (v2)
+# JMI Verandas · site (v2)
 
-Site vitrine de JMI Vérandas. Statique, sans framework, **en local** : rien n'est publié.
+Site vitrine de JMI Verandas. Statique, sans framework, **en local** : rien n'est publié.
 Plan et décisions : [docs/DESIGN.md](docs/DESIGN.md).
 
 Versions du design : branche `refonte-v6` = v6 « son site, en mieux » (voir docs/AUDIT-2026-10.md). Anciennes

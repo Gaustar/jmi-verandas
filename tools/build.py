@@ -414,7 +414,7 @@ def main():
     else:
         (TMP / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {url}{base}sitemap.xml\n")
     manifest = {
-        "name": SITE["name"], "short_name": "JMI Vérandas", "lang": "fr",
+        "name": SITE["name"], "short_name": "JMI Verandas", "lang": "fr",
         "start_url": base, "display": "browser", "theme_color": "#008bcc", "background_color": "#ffffff",
         "icons": [{"src": f"{base}icon-192.png", "sizes": "192x192", "type": "image/png"},
                   {"src": f"{base}icon-512.png", "sizes": "512x512", "type": "image/png"}],

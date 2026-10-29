@@ -1,5 +1,5 @@
 /* =========================================================================
-   JMI Vérandas · v6 « son site, en mieux »
+   JMI Verandas · v6 « son site, en mieux »
    Une seule police (Archivo, variable en graisse et en largeur), le bleu du logo pour les actions,
    l'anthracite de ses structures pour les titres, ses photos en grand.
    Thème sombre automatique via light-dark() ; ?theme=dark|light pour les essais.
@@ -208,7 +208,7 @@ mark { background: linear-gradient(transparent 58%, color-mix(in srgb, var(--log
   line-height: 1.02; font-stretch: 78%; font-weight: 800;
   text-shadow: 0 2px 30px rgb(0 0 0 / .25);
 }
-.hero-title-kicker { display: block; margin-bottom: .2em; font-size: .5em; font-stretch: 100%; font-weight: 600; letter-spacing: .01em; color: #cfe9f6; }
+.hero-title-kicker { display: block; margin-bottom: .2em; font-size: .5em; font-stretch: 100%; font-weight: 600; letter-spacing: .01em; color: #e6f4fb; text-shadow: 0 1px 14px rgb(8 14 20 / .55); }
 .hero-title-soft { display: block; margin-top: .3em; font-size: .52em; font-weight: 500; font-stretch: 100%; line-height: 1.2; color: rgb(255 255 255 / .9); }
 .hero-lead { max-width: 52ch; margin: 1.3rem 0 1.8rem; font-size: clamp(1.02rem, .95rem + .35vw, 1.2rem); color: rgb(255 255 255 / .92); }
 .hero-cta { display: flex; flex-wrap: wrap; gap: .75rem; }
@@ -348,7 +348,7 @@ mark { background: linear-gradient(transparent 58%, color-mix(in srgb, var(--log
 .quality { position: relative; isolation: isolate; overflow: hidden; padding: clamp(5rem, 4rem + 5vw, 8rem) 0; color: var(--on-dark); background: var(--dark); }
 .quality-media { position: absolute; inset: 0; z-index: -2; }
 .quality-media img { width: 100%; height: 100%; object-fit: cover; }
-.quality::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(100deg, rgb(14 19 24 / .94) 0%, rgb(14 19 24 / .82) 50%, rgb(14 19 24 / .55) 100%); }
+.quality::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(100deg, rgb(14 19 24 / .88) 0%, rgb(14 19 24 / .66) 50%, rgb(14 19 24 / .3) 100%); }
 .quality-lines { margin: 0 0 1.6rem; }
 .quality-lines span { display: block; font-size: clamp(2.2rem, 1.3rem + 4vw, 4.6rem); font-weight: 800; font-stretch: 75%; line-height: 1.02; letter-spacing: -.01em; }
 .quality-lines span:last-child { color: #7cc8ee; }
@@ -612,7 +612,7 @@ mark { background: linear-gradient(transparent 58%, color-mix(in srgb, var(--log
 .site-footer { padding: 4rem 0 2rem; background: var(--dark); color: rgb(243 246 248 / .85); font-size: .97rem; }
 .site-footer a { color: #fff; text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
-.footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr .8fr; gap: 2.5rem; }
+.footer-grid { display: grid; grid-template-columns: 1fr 1.1fr 1.4fr .75fr; gap: 2.5rem; }
 .footer-logo { width: 132px; margin-bottom: 1.1rem; }
 .footer-logo .logo { width: 100%; height: auto; display: block; border-radius: 3px; overflow: hidden; }
 .footer-brand .muted { color: rgb(243 246 248 / .6); }
