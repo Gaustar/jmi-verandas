@@ -163,3 +163,12 @@ Décisions de conception notables :
 - Le titre de chaque page apparaît par animation CSS immédiate (et non par le JavaScript) : c'est lui l'élément le plus gros affiché, il ne doit pas attendre.
 - Thème clair/sombre défini une seule fois avec `light-dark()` ; pas de filtre global.
 - Polices hébergées localement : aucune requête vers Google, donc aucune bannière de cookies à prévoir.
+
+## v7 « papier de pierre » (2026-10-29, branche `design-v7`, non déployée)
+
+Contenu inchangé : uniquement le texte et les photos du site officiel (vérifié : les photos sont déjà en pleine résolution chez nous, le site Wix n'offre rien de plus grand).
+Différenciation face aux concurrents locaux (LV4S, Solstil, AT Véranda : fond noir ou blanc générique, listes de produits en texte, photos au second plan) :
+- papier calcaire + anthracite + bleu du logo ; liseré ambre (les LED de ses pergolas) sous les photos et devant les intitulés ;
+- Fraunces (titres, italique pour les accents) + Archivo (texte) ; angles droits (8 px) au lieu de pilules ;
+- accueil : hero scindé (titre sur papier, photo en grand), bandeau de preuves à filets, **liste numérotée de ses 11 métiers** dont la photo suit le survol (vignettes sur téléphone), **bande de réalisations** à faire défiler.
+Retour arrière : `git checkout main` (la v6.1 reste en ligne tant que la branche n'est pas fusionnée).

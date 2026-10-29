@@ -104,4 +104,18 @@
       document.querySelectorAll('[data-reviews]').forEach(function (s) { s.hidden = false; });
     }
   } catch (e) { /* rien */ }
+
+  /* ---------- Accueil : la photo de la liste des métiers suit le survol / le focus ---------- */
+  var pindex = document.querySelector('[data-pindex]');
+  if (pindex) {
+    var shots = pindex.querySelectorAll('.pindex-shot');
+    var show = function (name) {
+      shots.forEach(function (s) { s.classList.toggle('is-on', s.getAttribute('data-photo') === name); });
+    };
+    pindex.querySelectorAll('.pindex-list a').forEach(function (a) {
+      var name = a.getAttribute('data-photo');
+      a.addEventListener('mouseenter', function () { show(name); });
+      a.addEventListener('focus', function () { show(name); });
+    });
+  }
 })();

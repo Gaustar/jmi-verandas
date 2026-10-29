@@ -2,30 +2,32 @@
 title: JMI Verandas · Vérandas et pergolas · Corbion, Bouillon · Luxembourg et Namur
 description: JMI Verandas, votre spécialiste en vérandas et pergolas dans les provinces de Luxembourg et de Namur. Vérandas, pergolas classiques ou bioclimatiques, stores, volets, portes, fenêtres et châssis. Devis gratuit et sans engagement.
 nav: home
-body: page-home has-hero
+body: page-home
 lcp: pergola-bio-hero
 scripts: lightbox, places
 -->
 
-    <!-- ============ HERO : sa photo, son titre ============ -->
+    <!-- ============ HERO : son titre sur papier, sa photo en grand ============ -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-media">
-        {{img name="pergola-bio-hero" alt="Pergola anthracite avec store vertical, sur une terrasse face à une maison en pierre" sizes="100vw" loading="eager" fetchpriority="high"}}
-      </div>
-      <div class="wrap hero-content">
-        <p class="eyebrow eyebrow--light">Corbion-sur-Semois · près de Bouillon</p>
-        <h1 class="hero-title" id="hero-title">
-          <span class="hero-title-kicker">JMI Verandas,</span>
-          votre spécialiste en vérandas et pergolas
-          <span class="hero-title-soft">dans les provinces de Luxembourg et de Namur</span>
-        </h1>
-        <p class="hero-lead">Vérandas, pergolas classiques ou bioclimatiques, stores, volets, portes, fenêtres, châssis et même moustiquaires…</p>
-        <div class="hero-cta">
-          <a class="btn btn--primary btn--lg" href="{{base}}contact/">Demander un devis gratuit</a>
-          <a class="btn btn--glass btn--lg" href="tel:{{site.phoneIntl}}">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
-            {{site.phone}}
-          </a>
+      <div class="wrap hero-layout">
+        <div class="hero-content">
+          <p class="eyebrow">Corbion-sur-Semois · près de Bouillon</p>
+          <h1 class="hero-title" id="hero-title">
+            <span class="hero-title-kicker">JMI Verandas,</span>
+            votre spécialiste en vérandas et pergolas
+            <span class="hero-title-soft">dans les provinces de Luxembourg et de Namur</span>
+          </h1>
+          <p class="hero-lead">Vérandas, pergolas classiques ou bioclimatiques, stores, volets, portes, fenêtres, châssis et même moustiquaires…</p>
+          <div class="hero-cta">
+            <a class="btn btn--primary btn--lg" href="{{base}}contact/">Demander un devis gratuit</a>
+            <a class="btn btn--ghost btn--lg" href="tel:{{site.phoneIntl}}">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+              {{site.phone}}
+            </a>
+          </div>
+        </div>
+        <div class="hero-media">
+          {{img name="pergola-bio-hero" alt="Pergola anthracite avec store vertical, sur une terrasse face à une maison en pierre" sizes="(min-width: 900px) 640px, 100vw" loading="eager" fetchpriority="high"}}
         </div>
       </div>
     </section>
@@ -87,7 +89,7 @@ scripts: lightbox, places
       </div>
     </section>
 
-    <!-- ============ PRODUITS ============ -->
+    <!-- ============ PRODUITS : la liste de ses métiers ============ -->
     <section class="section section--alt" aria-labelledby="products-title">
       <div class="wrap">
         <div class="section-head">
@@ -97,48 +99,66 @@ scripts: lightbox, places
           </div>
           <a class="link-arrow reveal" href="{{base}}verandas-chassis/">Tous les produits <span aria-hidden="true">→</span></a>
         </div>
-
-        <div class="products">
-          <a class="pcard pcard--xl reveal" href="{{base}}verandas-chassis/#verandas">
-            {{img name="veranda-baies-coulissantes" alt="" sizes="(min-width: 1100px) 600px, (min-width: 700px) 92vw, 92vw"}}
-            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-veranda"/></svg>Vérandas &amp; extensions</span>
-            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="pcard reveal" href="{{base}}verandas-chassis/#pergolas">
-            {{img name="pergola-bio-terrasse" alt="" sizes="(min-width: 1100px) 290px, 46vw"}}
-            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-pergola"/></svg>Pergolas classiques ou bioclimatiques</span>
-            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="pcard reveal" href="{{base}}verandas-chassis/#stores">
-            {{img name="veranda-store-zip" alt="" sizes="(min-width: 1100px) 290px, 46vw"}}
-            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-store"/></svg>Stores &amp; protections solaires</span>
-            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="pcard reveal" href="{{base}}verandas-chassis/#stores">
-            {{img name="volet-roulant-facade" alt="" sizes="(min-width: 1100px) 290px, 46vw"}}
-            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-volet"/></svg>Volets roulants</span>
-            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="pcard reveal" href="{{base}}verandas-chassis/#chassis">
-            {{img name="volet-garage-roulant" alt="" sizes="(min-width: 1100px) 290px, 46vw"}}
-            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-garage"/></svg>Portes de garage</span>
-            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="pcard pcard--wide reveal" href="{{base}}verandas-chassis/#chassis">
-            {{img name="facade-baies-bardage" alt="" sizes="(min-width: 1100px) 600px, (min-width: 700px) 92vw, 92vw"}}
-            <span class="pcard-title"><svg class="ico" aria-hidden="true"><use href="#i-chassis"/></svg>Fenêtres, portes &amp; châssis</span>
-            <span class="pcard-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="pcard pcard--text reveal" href="{{base}}contact/?projet=carport">
-            <svg class="ico ico--xl" aria-hidden="true"><use href="#i-carport"/></svg>
-            <span class="pcard-title">Carports</span>
-            <span class="pcard-more">Demander un devis <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="pcard pcard--text reveal" href="{{base}}contact/?projet=moustiquaire">
-            <svg class="ico ico--xl" aria-hidden="true"><use href="#i-moustiquaire"/></svg>
-            <span class="pcard-title">Moustiquaires</span>
-            <span class="pcard-more">Demander un devis <span aria-hidden="true">→</span></span>
-          </a>
+        <div class="pindex reveal" data-pindex>
+          <ol class="pindex-list">
+          <li><a href="{{base}}contact/?projet=veranda" data-photo="veranda-baies-coulissantes">
+            <span class="pindex-n">01</span><span class="pindex-name">Véranda</span>
+            <span class="pindex-thumb" aria-hidden="true">{{img name="veranda-baies-coulissantes" alt="" sizes="96px"}}</span>
+            <span class="pindex-go" aria-hidden="true">→</span></a></li>
+          <li><a href="{{base}}contact/?projet=extension" data-photo="veranda-brique">
+            <span class="pindex-n">02</span><span class="pindex-name">Extension</span>
+            <span class="pindex-thumb" aria-hidden="true">{{img name="veranda-brique" alt="" sizes="96px"}}</span>
+            <span class="pindex-go" aria-hidden="true">→</span></a></li>
+          <li><a href="{{base}}contact/?projet=pergola-classique" data-photo="pergola-lames-paroi">
+            <span class="pindex-n">03</span><span class="pindex-name">Pergola classique</span>
+            <span class="pindex-thumb" aria-hidden="true">{{img name="pergola-lames-paroi" alt="" sizes="96px"}}</span>
+            <span class="pindex-go" aria-hidden="true">→</span></a></li>
+          <li><a href="{{base}}contact/?projet=pergola-bioclimatique" data-photo="pergola-bio-hero">
+            <span class="pindex-n">04</span><span class="pindex-name">Pergola bioclimatique</span>
+            <span class="pindex-thumb" aria-hidden="true">{{img name="pergola-bio-hero" alt="" sizes="96px"}}</span>
+            <span class="pindex-go" aria-hidden="true">→</span></a></li>
+          <li><a href="{{base}}contact/?projet=carport" data-photo="volet-garage-roulant">
+            <span class="pindex-n">05</span><span class="pindex-name">Carport</span>
+            <span class="pindex-thumb" aria-hidden="true">{{img name="volet-garage-roulant" alt="" sizes="96px"}}</span>
+            <span class="pindex-go" aria-hidden="true">→</span></a></li>
+          <li><a href="{{base}}contact/?projet=store-exterieur" data-photo="veranda-store-zip">
+            <span class="pindex-n">06</span><span class="pindex-name">Stores</span>
+            <span class="pindex-thumb" aria-hidden="true">{{img name="veranda-store-zip" alt="" sizes="96px"}}</span>
+            <span class="pindex-go" aria-hidden="true">→</span></a></li>
+          <li><a href="{{base}}contact/?projet=protection-solaire" data-photo="pergola-bio-terrasse">
+            <span class="pindex-n">07</span><span class="pindex-name">Protection solaire</span>
+            <span class="pindex-thumb" aria-hidden="true">{{img name="pergola-bio-terrasse" alt="" sizes="96px"}}</span>
+            <span class="pindex-go" aria-hidden="true">→</span></a></li>
+          <li><a href="{{base}}contact/?projet=volet-roulant" data-photo="volet-roulant-facade">
+            <span class="pindex-n">08</span><span class="pindex-name">Volet</span>
+            <span class="pindex-thumb" aria-hidden="true">{{img name="volet-roulant-facade" alt="" sizes="96px"}}</span>
+            <span class="pindex-go" aria-hidden="true">→</span></a></li>
+          <li><a href="{{base}}contact/?projet=fenetre" data-photo="facade-baies-bardage">
+            <span class="pindex-n">09</span><span class="pindex-name">Fenêtre</span>
+            <span class="pindex-thumb" aria-hidden="true">{{img name="facade-baies-bardage" alt="" sizes="96px"}}</span>
+            <span class="pindex-go" aria-hidden="true">→</span></a></li>
+          <li><a href="{{base}}contact/?projet=porte" data-photo="facade-chassis-garage">
+            <span class="pindex-n">10</span><span class="pindex-name">Porte</span>
+            <span class="pindex-thumb" aria-hidden="true">{{img name="facade-chassis-garage" alt="" sizes="96px"}}</span>
+            <span class="pindex-go" aria-hidden="true">→</span></a></li>
+          <li><a href="{{base}}contact/?projet=moustiquaire" data-photo="veranda-interieur">
+            <span class="pindex-n">11</span><span class="pindex-name">Moustiquaire</span>
+            <span class="pindex-thumb" aria-hidden="true">{{img name="veranda-interieur" alt="" sizes="96px"}}</span>
+            <span class="pindex-go" aria-hidden="true">→</span></a></li>
+          </ol>
+          <div class="pindex-view" aria-hidden="true">
+          <figure class="pindex-shot is-on" data-photo="veranda-baies-coulissantes">{{img name="veranda-baies-coulissantes" alt="" sizes="(min-width: 900px) 560px, 0px"}}</figure>
+          <figure class="pindex-shot" data-photo="veranda-brique">{{img name="veranda-brique" alt="" sizes="(min-width: 900px) 560px, 0px"}}</figure>
+          <figure class="pindex-shot" data-photo="pergola-lames-paroi">{{img name="pergola-lames-paroi" alt="" sizes="(min-width: 900px) 560px, 0px"}}</figure>
+          <figure class="pindex-shot" data-photo="pergola-bio-hero">{{img name="pergola-bio-hero" alt="" sizes="(min-width: 900px) 560px, 0px"}}</figure>
+          <figure class="pindex-shot" data-photo="volet-garage-roulant">{{img name="volet-garage-roulant" alt="" sizes="(min-width: 900px) 560px, 0px"}}</figure>
+          <figure class="pindex-shot" data-photo="veranda-store-zip">{{img name="veranda-store-zip" alt="" sizes="(min-width: 900px) 560px, 0px"}}</figure>
+          <figure class="pindex-shot" data-photo="pergola-bio-terrasse">{{img name="pergola-bio-terrasse" alt="" sizes="(min-width: 900px) 560px, 0px"}}</figure>
+          <figure class="pindex-shot" data-photo="volet-roulant-facade">{{img name="volet-roulant-facade" alt="" sizes="(min-width: 900px) 560px, 0px"}}</figure>
+          <figure class="pindex-shot" data-photo="facade-baies-bardage">{{img name="facade-baies-bardage" alt="" sizes="(min-width: 900px) 560px, 0px"}}</figure>
+          <figure class="pindex-shot" data-photo="facade-chassis-garage">{{img name="facade-chassis-garage" alt="" sizes="(min-width: 900px) 560px, 0px"}}</figure>
+          <figure class="pindex-shot" data-photo="veranda-interieur">{{img name="veranda-interieur" alt="" sizes="(min-width: 900px) 560px, 0px"}}</figure>
+          </div>
         </div>
       </div>
     </section>
@@ -224,8 +244,8 @@ scripts: lightbox, places
       </div>
     </section>
 
-    <!-- ============ RÉALISATIONS ============ -->
-    <section class="section" aria-labelledby="work-title">
+    <!-- ============ RÉALISATIONS : une bande à faire défiler ============ -->
+    <section class="section section--strip" aria-labelledby="work-title">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -234,23 +254,32 @@ scripts: lightbox, places
           </div>
           <a class="link-arrow reveal" href="{{base}}realisations/">Toutes les réalisations <span aria-hidden="true">→</span></a>
         </div>
-        <div class="mosaic">
-          <a class="mosaic-item mosaic-item--tall reveal" href="{{imgurl name="veranda-interieur"}}" data-lightbox="accueil" data-caption="">
-            {{img name="veranda-interieur" alt="Intérieur d'une véranda à toiture vitrée, avec fauteuils et plantes" sizes="(min-width: 960px) 480px, 92vw"}}
-          </a>
-          <a class="mosaic-item reveal" href="{{imgurl name="veranda-brique"}}" data-lightbox="accueil" data-caption="">
-            {{img name="veranda-brique" alt="Véranda anthracite sur le côté d'une maison en briques" sizes="(min-width: 960px) 360px, 46vw"}}
-          </a>
-          <a class="mosaic-item reveal" href="{{imgurl name="pergola-lames-paroi"}}" data-lightbox="accueil" data-caption="">
-            {{img name="pergola-lames-paroi" alt="Paroi à lamelles d'une pergola, avec un jardin en arrière-plan" sizes="(min-width: 960px) 360px, 46vw"}}
-          </a>
-          <a class="mosaic-item reveal" href="{{imgurl name="veranda-toit-verre"}}" data-lightbox="accueil" data-caption="">
-            {{img name="veranda-toit-verre" alt="Véranda à toiture vitrée au fond d'un jardin" sizes="(min-width: 960px) 360px, 46vw"}}
-          </a>
-          <a class="mosaic-item reveal" href="{{imgurl name="facade-chassis-garage"}}" data-lightbox="accueil" data-caption="">
-            {{img name="facade-chassis-garage" alt="Façade avec châssis anthracite et porte de garage blanche" sizes="(min-width: 960px) 360px, 46vw"}}
-          </a>
-        </div>
+      </div>
+      <div class="strip" tabindex="0" role="group" aria-label="Réalisations">
+        <a class="strip-item" href="{{imgurl name="veranda-interieur"}}" data-lightbox="accueil" data-caption="">
+          {{img name="veranda-interieur" alt="Intérieur d'une véranda à toiture vitrée, avec fauteuils et plantes" sizes="(min-width: 960px) 560px, 78vw"}}
+        </a>
+        <a class="strip-item" href="{{imgurl name="veranda-brique"}}" data-lightbox="accueil" data-caption="">
+          {{img name="veranda-brique" alt="Véranda anthracite sur le côté d'une maison en briques" sizes="(min-width: 960px) 560px, 78vw"}}
+        </a>
+        <a class="strip-item" href="{{imgurl name="pergola-lames-paroi"}}" data-lightbox="accueil" data-caption="">
+          {{img name="pergola-lames-paroi" alt="Paroi à lamelles d'une pergola, avec un jardin en arrière-plan" sizes="(min-width: 960px) 560px, 78vw"}}
+        </a>
+        <a class="strip-item" href="{{imgurl name="veranda-toit-verre"}}" data-lightbox="accueil" data-caption="">
+          {{img name="veranda-toit-verre" alt="Véranda à toiture vitrée au fond d'un jardin" sizes="(min-width: 960px) 560px, 78vw"}}
+        </a>
+        <a class="strip-item" href="{{imgurl name="facade-chassis-garage"}}" data-lightbox="accueil" data-caption="">
+          {{img name="facade-chassis-garage" alt="Façade avec châssis anthracite et porte de garage blanche" sizes="(min-width: 960px) 560px, 78vw"}}
+        </a>
+        <a class="strip-item" href="{{imgurl name="pergola-bio-terrasse"}}" data-lightbox="accueil" data-caption="">
+          {{img name="pergola-bio-terrasse" alt="Pergola bioclimatique sur une terrasse" sizes="(min-width: 960px) 560px, 78vw"}}
+        </a>
+        <a class="strip-item" href="{{imgurl name="veranda-store-zip"}}" data-lightbox="accueil" data-caption="">
+          {{img name="veranda-store-zip" alt="Véranda avec stores zip baissés" sizes="(min-width: 960px) 560px, 78vw"}}
+        </a>
+        <a class="strip-item" href="{{imgurl name="facade-baies-bardage"}}" data-lightbox="accueil" data-caption="">
+          {{img name="facade-baies-bardage" alt="Façade en bardage avec grandes baies vitrées" sizes="(min-width: 960px) 560px, 78vw"}}
+        </a>
       </div>
     </section>
 
